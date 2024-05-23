@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+      <title>LacteosXD</title>
+      <link rel="stylesheet" href="../../css/style.css">
+
+<body>
+
+      <!-- Creamos el menu de navegacion -->
+      <nav class="navcatalogo">
+            <a href="" class="navbar-brand">
+                  <img src="" alt="">
+            </a>
+
+            <label for="toggle" class="navbar-toggle">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+            </label>
+
+            <ul class="nav-list">
+
+                  <img src="../../api/image/titulo-removebg-preview.png" alt="" class="lactolac">
+
+                  <li class="nav-item">
+                        <a href="../../views/admin/CatalogoProductos.html" class="nav-link"><i
+                                    class="bi bi-journal-text"></i>Catalogo</a>
+                  </li>
+                  <li class="nav-item">
+                        <a href="../../views/admin/Cliente.html" class="nav-link"><i
+                                    class="bi bi-people-fill"></i>Clientes</a>
+                  </li>
+                  <li class="nav-item">
+                        <a href="../../views/admin/usuarios.html" class="nav-link"><i
+                                    class="bi bi-person-circle"></i>Usuarios</a>
+                  </li>
+                  <li class="nav-item">
+                        <a href="../../views/admin/proveedores.html" class="nav-link"><i
+                                    class="bi bi-bag-check-fill"></i>Proveedores</a>
+                  </li>
+                  <li class="nav-item">
+                        <a href="../../views/admin/reseñas.html" class="nav-link"><i
+                                    class="bi bi-chat-dots"></i>Reseñas</a>
+                  </li>
+            </ul>
+      </nav>
+      <center>
+            <p style="margin-bottom: 6%;">Bienvenido Administrador</p>
+      </center>
+
+      <body>
+
+            <!-- agregamos una extencion de graficas -->
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+                  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+                  crossorigin="anonymous">
+            <link rel="stylesheet"
+                  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+            <script type="text/javascript">
+                  google.charts.load('current', { 'packages': ['bar'] });
+                  google.charts.setOnLoadCallback(drawChart);
+
+
+
+
+
+                  function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                              ['Vendidos', 'Mozarella', 'Crema', 'Cuajada'],
+                              ['2021', 1000, 400, 200],
+                              ['2022', 1170, 460, 250],
+                              ['2023', 660, 1120, 300],
+                              ['2024', 1030, 540, 350]
+                        ]);
+
+
+                        var options = {
+                              chart: {
+                                    title: '',
+                                    subtitle: '',
+                              }
+                        };
+
+                        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+                        chart.draw(data, google.charts.Bar.convertOptions(options));
+                  }
+
+
+
+
+
+
+            </script>
+            </head>
+
+            <div class="container-fluid" id="columnchart_material" style="width: 650px; height: 400px;"></div>
+            <script src="app.js"></script>
+            <script src="../../controladores/admin/index.js"></script>
+
+            <!-- footer del sitio web -->
+            <footer>
+                  <div class="footer-content">
+                        <center>
+                              <h3>Lacteos Doña Queso</h3>
+                        </center>
+                        <p>Este año empezamos con la distrubucion de los mejores lacteos en toda ciudad ya que son
+                              productos 100% natural
+                        </p>
+                        <ul class="socials">
+                              <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                              <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                              <li><a href="#"><i class="bi bi-whatsapp"></i></a></li>
+                              <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+                              <li><a href="#"><i class="bi bi-tiktok"></i></a></li>
+                        </ul>
+                  </div>
+                  <div class="footer-bottom">
+                        <p style="font-family: Arial;">copyright &copy;2024 Lacteos Doña Queso. designed by
+                              <span>Quesos</span></p>
+                  </div>
+            </footer>
+
+      </body>
+
+</html>
