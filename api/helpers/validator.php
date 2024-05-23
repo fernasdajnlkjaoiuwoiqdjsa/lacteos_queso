@@ -253,7 +253,7 @@ class Validator
     public static function validatePhone($value)
     {
         // Se verifica que el número tenga el formato 0000-0000 y que inicie con 2, 6 o 7.
-        if (preg_match('/^[2,6,7]{1}[0-9]{3}[-][0-9]{4}$/', $value)) {
+        if (preg_match('/^[2,6,7]{1}[0-9]{3}[0-9]{4}$/', $value)) {
             return true;
         } else {
             return false;

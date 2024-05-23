@@ -41,7 +41,7 @@ class ClienteData extends ClienteHandler
 
     public function setEdad($value, $min = 2, $max = 50)
     {
-        if (!Validator::validateAlphabetic($value)) {
+        if (!Validator::validateString($value)) {
             $this->data_error = 'la edad debe ser un valor alfabético';
             return false;
         } elseif (Validator::validateLength($value, $min, $max)) {
@@ -90,7 +90,7 @@ class ClienteData extends ClienteHandler
             $this->telefonocli = $value;
             return true;
         } else {
-            $this->data_error = 'El teléfono debe tener el formato (2, 6, 7)###-####';
+            $this->data_error = 'El telefono contiene caracteres prohibidos';
             return false;
         }
     }

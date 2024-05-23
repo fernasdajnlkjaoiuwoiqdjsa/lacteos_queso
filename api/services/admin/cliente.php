@@ -19,7 +19,7 @@ if (isset($_GET['action'])) {
                 
                 if (!Validator::validateSearch($_POST['search'])) {
                     $result['error'] = Validator::getSearchError();
-                } elseif ($result['dataset'] = $Cliente->searchRows()) {
+                } elseif ($result['dataset'] = $Clientecatalogo->searchRows()) {
                     $result['status'] = 1;
                     $result['message'] = 'Existen ' . count($result['dataset']) . ' coincidencias';
                 } else {
@@ -38,14 +38,14 @@ if (isset($_GET['action'])) {
                     !$Clientecatalogo->setfecharegistro($_POST['registroCliente']) 
                     
                 ) {
-                    $result['error'] = $CatalogoProducto->getDataError();
-                } elseif ($CatalogoProducto->createRow()) {
+                    $result['error'] = $Clientecatalogo->getDataError();
+                } elseif ($Clientecatalogo->createRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Catalogo creado correctamente';
+                    $result['message'] = 'Cliente Agregado correctamente';
                     // Se asigna el estado del archivo después de insertar.
                     //$result['fileStatus'] = Validator::saveFile($_FILES['imagenCategoria'], $CatalogoProducto::RUTA_IMAGEN);
                 } else {
-                    $result['error'] = 'Ocurrió un problema al crear la categoría';
+                    $result['error'] = 'Ocurrió un problema al agregar al cliente';
                 }
                 break;
             case 'readAll':
@@ -53,16 +53,16 @@ if (isset($_GET['action'])) {
                     $result['status'] = 1;
                     $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
                 } else {
-                    $result['error'] = 'No existen catalogo registradas';
+                    $result['error'] = 'No existen Cliente registrados';
                 }
                 break;
             case 'readOne':
-                if (!$Clientecatalogo->setId($_POST['idCatalogo'])) {
+                if (!$Clientecatalogo->setId($_POST['idCliente'])) {
                     $result['error'] = $Clientecatalogo->getDataError();
                 } elseif ($result['dataset'] = $Clientecatalogo->readOne()) {
                     $result['status'] = 1;
                 } else {
-                    $result['error'] = 'Catalogo inexistente';
+                    $result['error'] = 'Cliente inexistente';
                 }
                 break;
             case 'updateRow':

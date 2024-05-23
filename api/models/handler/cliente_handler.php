@@ -93,7 +93,7 @@ class ClienteHandler
     {
         $sql = 'INSERT INTO clientes(nombre_cliente, edad_cliente, direccion, correo_Cliente, telefono_cliente, relacion_cliente, fecha_registro)
                 VALUES(?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombrecli, $this->edad, $this->correocli, $this->telefonocli, $this->relacioncli, $this->fechaingreso);
+        $params = array($this->nombrecli, $this->edad,$this->direccion, $this->correocli, $this->telefonocli, $this->relacioncli, $this->fechaingreso);
         return Database::executeRow($sql, $params);
     }
 
@@ -107,8 +107,8 @@ class ClienteHandler
 
     public function readOne()
     {
-        $sql = 'SELECT id_cliente, nombre_cliente, edad_cliente, direccion, correo_Cliente, telefono_cliente,relacion_cliente,fecha_registro
-                FROM Clientes
+        $sql = 'SELECT id_cliente, nombre_cliente, edad_cliente, direccion, correo_Cliente, telefono_cliente,relacion_cliente,fecha_registro, id_cliente
+                FROM clientes
                 WHERE id_cliente = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -117,7 +117,7 @@ class ClienteHandler
     public function updateRow()
     {
         $sql = 'UPDATE clientes
-                SET nombre_cliente = ?, edad_cliente = ?, direccion = ?, correo_Cliente = ?, telefono_cliente = ?, relacion_cliente = ?, fecha_registro = ?
+                SET nombre_cliente = ?, edad_cliente = ?, direccion = ?, correo_Cliente = ?, telefono_cliente = ?, relacion_cliente = ?, fecha_registro = ? , id_cliente = ?
                 WHERE id_cliente = ?';
         $params = array($this->nombrecli, $this->edad, $this->direccion, $this->correocli, $this->telefonocli, $this->relacioncli, $this->fechaingreso, $this->id);
         return Database::executeRow($sql, $params);

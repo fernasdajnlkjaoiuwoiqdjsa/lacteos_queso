@@ -11,7 +11,7 @@ const SAVE_MODAL = new bootstrap.Modal('#saveModal'),
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
     ID_CLIENTE = document.getElementById('idCliente'),
-    nombre_cliente = document.getElementById('nombreCliente'),
+    NOMBRE_CLIENTE = document.getElementById('nombreCliente'),
     EDAD_CLIENTE = document.getElementById('edadClinte'),
     DIRECCION_CLIENTE = document.getElementById('direccionCliente'),
     CORREO_CLIENTE = document.getElementById('correoCliente'),
@@ -115,7 +115,7 @@ const fillTable = async (form = null) => {
 const openCreate = () => {
     // Se muestra la caja de diálogo con su título.
     SAVE_MODAL.show();
-    MODAL_TITLE.textContent = 'Crear Catalogo';
+    MODAL_TITLE.textContent = 'Crear Cliente';
     // Se prepara el formulario.
     SAVE_FORM.reset();
     CORREO_CLIENTE.disabled = false;
@@ -137,20 +137,20 @@ const openUpdate = async (id) => {
     if (DATA.status) {
         // Se muestra la caja de diálogo con su título.
         SAVE_MODAL.show();
-        MODAL_TITLE.textContent = 'Actualizar Catalogo';
+        MODAL_TITLE.textContent = 'Actualizar Cliente';
         // Se prepara el formulario.
         SAVE_FORM.reset();
         CORREO_CLIENTE.disabled = true;
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
-        ID_PRODUCTO.value = ROW.id_cliente;
-        NOMBRE_PRODUCTO.value = ROW.nombre_cliente;
-        CORREO_PROVEEDOR.value = ROW.edad_cliente;
-        PRECIO_PRODUCTO.value = ROW.direccion;
-        EXISTENCIAS_PRODUCTO.value = ROW.correo_Cliente;
-        TELEFONO_CATALOGO.value = ROW.telefono_cliente;
-        LUGAR_CATALOGO.value = ROW.relacion_cliente;
-        FECHA_INGRESO.value = ROW.fecha_registro;
+        ID_CLIENTE.value = ROW.id_cliente;
+        NOMBRE_CLIENTE.value = ROW.nombre_cliente;
+        EDAD_CLIENTE.value = ROW.edad_cliente;
+        DIRECCION_CLIENTE.value = ROW.direccion;
+        CORREO_CLIENTE.value = ROW.correo_Cliente;
+        TELEFONO_CLIENTE.value = ROW.telefono_cliente;
+        RELACION_CLIENTE.value = ROW.relacion_cliente;
+        FECHA_REGISTRO.value = ROW.fecha_registro;
         fillSelect(CATEGORIA_API, 'readAll', 'categoriaProducto', ROW.id_cliente);
     } else {
         sweetAlert(2, DATA.error, false);
@@ -164,7 +164,7 @@ const openUpdate = async (id) => {
 */
 const openDelete = async (id) => {
     // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
-    const RESPONSE = await confirmAction('¿Desea eliminar el producto de forma permanente?');
+    const RESPONSE = await confirmAction('¿Desea eliminar el Cliente de forma permanente?');
     // Se verifica la respuesta del mensaje.
     if (RESPONSE) {
         // Se define una constante tipo objeto con los datos del registro seleccionado.
