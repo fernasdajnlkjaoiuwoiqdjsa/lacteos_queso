@@ -69,8 +69,7 @@ if (isset($_GET['action'])) {
                 $_POST = Validator::validateForm($_POST);
                 if (
                     !$CatalogoProducto->setNombreCatlogo($_POST['nombreCatalogo']) or
-                    !$CatalogoProducto->setCantidad($_POST['cantidadCatalogo']) or
-                    !$CatalogoProducto->setPrecio($_POST['PrecioCatalogo']) or
+                    !$CatalogoProducto->setPrecio($_POST['precioCatalogo']) or
                     !$CatalogoProducto->setCorreo($_POST['correoCatalogo']) or
                     !$CatalogoProducto->setTelfonopro($_POST['telefonoCatalogo']) or
                     !$CatalogoProducto->setLugar($_POST['lugarCatalogo']) or
@@ -82,7 +81,7 @@ if (isset($_GET['action'])) {
                     $result['status'] = 1;
                     $result['message'] = 'Categoría modificada correctamente';
                     // Se asigna el estado del archivo después de actualizar.
-                    $result['fileStatus'] = Validator::changeFile($_FILES['imagenCatalogo'], $CatalogoProducto::RUTA_IMAGEN, $CatalogoProducto->getFilename());
+                    //$result['fileStatus'] = Validator::changeFile($_FILES['imagenCatalogo'], $CatalogoProducto::RUTA_IMAGEN, $CatalogoProducto->getFilename());
                 } else {
                     $result['error'] = 'Ocurrió un problema al modificar el Catalogo';
                 }

@@ -29,6 +29,7 @@ if (isset($_GET['action'])) {
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
+                    
                     !$Clientecatalogo->setNombre($_POST['nombreCliente']) or
                     !$Clientecatalogo->setEdad($_POST['edadClinte']) or
                     !$Clientecatalogo->setDireccionn($_POST['direccionCliente']) or
@@ -94,7 +95,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = $Clientecatalogo->getDataError();
                 } elseif ($Clientecatalogo->deleteRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Catalogo eliminada correctamente';
+                    $result['message'] = 'Cliente eliminado correctamente';
                     // Se asigna el estado del archivo después de eliminar.
                     //$result['fileStatus'] = Validator::deleteFile($Clientecatalogo::RUTA_IMAGEN, $CatalogoProducto->getFilename());
                 } else {

@@ -84,16 +84,16 @@ class ClienteHandler
         $sql = 'SELECT id_cliente, nombre_cliente, edad_cliente, direccion, correo_Cliente, telefono_cliente, relacion_cliente, fecha_registro
                 FROM clientes
                 WHERE edad_cliente LIKE ? OR nombre_cliente LIKE ? OR correo_cliente LIKE ?
-                ORDER BY edad_cliente';
+                ORDER BY nombre_cliente';
         $params = array($value, $value, $value);
         return Database::getRows($sql, $params);
     }
 
     public function createRow()
     {
-        $sql = 'INSERT INTO clientes(nombre_cliente, edad_cliente, direccion, correo_Cliente, telefono_cliente, relacion_cliente, fecha_registro)
+        $sql = 'INSERT INTO clientes(nombre_cliente, edad_cliente, direccion, correo_Cliente, telefono_cliente, relacion_cliente, fecha_registro, id_admin)
                 VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombrecli, $this->edad,$this->direccion, $this->correocli, $this->telefonocli, $this->relacioncli, $this->fechaingreso);
+        $params = array($this->nombrecli, $this->edad,$this->direccion, $this->correocli, $this->telefonocli, $this->relacioncli, $this->fechaingreso, $_SESSION['id_admin']);
         return Database::executeRow($sql, $params);
     }
 
@@ -119,7 +119,7 @@ class ClienteHandler
         $sql = 'UPDATE clientes
                 SET nombre_cliente = ?, edad_cliente = ?, direccion = ?, correo_Cliente = ?, telefono_cliente = ?, relacion_cliente = ?, fecha_registro = ?, id_admin = ?
                 WHERE id_cliente = ?';
-        $params = array($this->nombrecli, $this->edad, $this->direccion, $this->correocli, $this->telefonocli, $this->relacioncli, $this->fechaingreso, $this->id);
+        $params = array($this->nombrecli, $this->edad, $this->direccion, $this->correocli, $this->telefonocli, $this->relacioncli, $this->fechaingreso, $_SESSION['id_admin']);
         return Database::executeRow($sql, $params);
     }
 

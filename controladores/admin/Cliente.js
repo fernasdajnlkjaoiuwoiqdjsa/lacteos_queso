@@ -151,7 +151,7 @@ const openUpdate = async (id) => {
         TELEFONO_CLIENTE.value = ROW.telefono_cliente;
         RELACION_CLIENTE.value = ROW.relacion_cliente;
         FECHA_REGISTRO.value = ROW.fecha_registro;
-        fillSelect(CATEGORIA_API, 'readAll', 'categoriaProducto', ROW.id_cliente);
+        fillSelect(CLIENTE_API, 'readAll', 'categoriaProducto', ROW.id_cliente);
     } else {
         sweetAlert(2, DATA.error, false);
     }
