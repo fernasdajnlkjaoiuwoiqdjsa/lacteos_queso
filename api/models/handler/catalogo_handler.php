@@ -75,7 +75,7 @@ class CatalogoHandler
         $sql = 'UPDATE catalogoproducto
                 SET nombre_catalogo = ?, cantidad = ?, precio = ?, correo_proveedor = ?, telefono_proveedor = ?, lugar = ?, fecha_ingreso = ?, id_admin = ?
                 WHERE id_catalogo = ?';
-        $params = array($this->nombre, $this->cantidad, $this->precio, $this->correopro, $this->telefonopro, $this->lugar,$this->fechaingreso ,$this->id,);
+        $params = array($this->nombre, $this->cantidad, $this->precio, $this->correopro, $this->telefonopro, $this->lugar,$this->fechaingreso ,$this->id);
         return Database::executeRow($sql, $params);
     }
 

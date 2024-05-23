@@ -92,7 +92,7 @@ class ClienteHandler
     public function createRow()
     {
         $sql = 'INSERT INTO clientes(nombre_cliente, edad_cliente, direccion, correo_Cliente, telefono_cliente, relacion_cliente, fecha_registro)
-                VALUES(?, ?, ?, ?, ?, ?, ?)';
+                VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
         $params = array($this->nombrecli, $this->edad,$this->direccion, $this->correocli, $this->telefonocli, $this->relacioncli, $this->fechaingreso);
         return Database::executeRow($sql, $params);
     }
@@ -101,13 +101,13 @@ class ClienteHandler
     {
         $sql = 'SELECT id_cliente, nombre_cliente, edad_cliente, direccion, correo_Cliente, telefono_cliente,relacion_cliente,fecha_registro
                 FROM clientes
-                ORDER BY edad_cliente';
+                ORDER BY nombre_cliente';
         return Database::getRows($sql);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT id_cliente, nombre_cliente, edad_cliente, direccion, correo_Cliente, telefono_cliente,relacion_cliente,fecha_registro, id_cliente
+        $sql = 'SELECT id_cliente, nombre_cliente, edad_cliente, direccion, correo_Cliente, telefono_cliente,relacion_cliente,fecha_registro
                 FROM clientes
                 WHERE id_cliente = ?';
         $params = array($this->id);
@@ -117,7 +117,7 @@ class ClienteHandler
     public function updateRow()
     {
         $sql = 'UPDATE clientes
-                SET nombre_cliente = ?, edad_cliente = ?, direccion = ?, correo_Cliente = ?, telefono_cliente = ?, relacion_cliente = ?, fecha_registro = ? , id_cliente = ?
+                SET nombre_cliente = ?, edad_cliente = ?, direccion = ?, correo_Cliente = ?, telefono_cliente = ?, relacion_cliente = ?, fecha_registro = ?, id_admin = ?
                 WHERE id_cliente = ?';
         $params = array($this->nombrecli, $this->edad, $this->direccion, $this->correocli, $this->telefonocli, $this->relacioncli, $this->fechaingreso, $this->id);
         return Database::executeRow($sql, $params);
