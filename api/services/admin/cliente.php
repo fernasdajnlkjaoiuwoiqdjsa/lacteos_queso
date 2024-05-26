@@ -99,7 +99,7 @@ if (isset($_GET['action'])) {
                     // Se asigna el estado del archivo después de eliminar.
                     //$result['fileStatus'] = Validator::deleteFile($Clientecatalogo::RUTA_IMAGEN, $CatalogoProducto->getFilename());
                 } else {
-                    $result['error'] = 'Ocurrió un problema al eliminar el catalogo';
+                    $result['error'] = 'Ocurrió un problema al eliminar el Cliente';
                 }
                 break;
             default:

@@ -118,8 +118,7 @@ const openCreate = () => {
     MODAL_TITLE.textContent = 'Crear Cliente';
     // Se prepara el formulario.
     SAVE_FORM.reset();
-    CORREO_CLIENTE.disabled = false;
-   
+ 
 }
 
 /*
@@ -140,7 +139,6 @@ const openUpdate = async (id) => {
         MODAL_TITLE.textContent = 'Actualizar Cliente';
         // Se prepara el formulario.
         SAVE_FORM.reset();
-        CORREO_CLIENTE.disabled = true;
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
         ID_CLIENTE.value = ROW.id_cliente;

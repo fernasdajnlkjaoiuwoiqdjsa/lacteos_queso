@@ -8,7 +8,7 @@
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-      <title>LacteosXD</title>
+      <title>Inicio Admin</title>
       <link rel="stylesheet" href="../../css/style.css">
 
 <body>
@@ -27,7 +27,7 @@
 
             <ul class="nav-list">
 
-                  <img src="../../api/image/titulo-removebg-preview.png" alt="" class="lactolac">
+                  <img src="../../recursos/img/titulo-removebg-preview.png" alt="" class="" width="200px" height="60px">
 
                   <li class="nav-item">
                         <a href="../../views/admin/CatalogoProductos.html" class="nav-link"><i
@@ -38,16 +38,15 @@
                                     class="bi bi-people-fill"></i>Clientes</a>
                   </li>
                   <li class="nav-item">
-                        <a href="../../views/admin/usuarios.html" class="nav-link"><i
-                                    class="bi bi-person-circle"></i>Usuarios</a>
-                  </li>
-                  <li class="nav-item">
                         <a href="../../views/admin/proveedores.html" class="nav-link"><i
-                                    class="bi bi-bag-check-fill"></i>Proveedores</a>
+                              class="bi bi-bag-check-fill"></i>Proveedores</a>
                   </li>
                   <li class="nav-item">
                         <a href="../../views/admin/reseñas.html" class="nav-link"><i
                                     class="bi bi-chat-dots"></i>Reseñas</a>
+                  </li>
+                  <li class="nav-item">
+                        <a href="../../views/admin/index.html|" class="nav-link"><i class="bi bi-box-arrow-left"></i></i>Salir</a>
                   </li>
             </ul>
       </nav>
@@ -59,55 +58,23 @@
 
             <!-- agregamos una extencion de graficas -->
 
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-                  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-                  crossorigin="anonymous">
-            <link rel="stylesheet"
-                  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-            <script type="text/javascript">
-                  google.charts.load('current', { 'packages': ['bar'] });
-                  google.charts.setOnLoadCallback(drawChart);
-
-
-
-
-
-                  function drawChart() {
-                        var data = google.visualization.arrayToDataTable([
-                              ['Vendidos', 'Mozarella', 'Crema', 'Cuajada'],
-                              ['2021', 1000, 400, 200],
-                              ['2022', 1170, 460, 250],
-                              ['2023', 660, 1120, 300],
-                              ['2024', 1030, 540, 350]
-                        ]);
-
-
-                        var options = {
-                              chart: {
-                                    title: '',
-                                    subtitle: '',
-                              }
-                        };
-
-                        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-                        chart.draw(data, google.charts.Bar.convertOptions(options));
-                  }
-
-
-
-
-
-
-            </script>
-            </head>
-
-            <div class="container-fluid" id="columnchart_material" style="width: 650px; height: 400px;"></div>
-            <script src="app.js"></script>
-            <script src="../../controladores/admin/index.js"></script>
-
+            <main>
+                  <!-- Título del contenido principal -->
+                  
+                  <!-- Contenedor de gráficos -->
+                  <div class="row">
+                      <div class="col-sm-12 col-md-6 col-lg-4">
+                          <!-- Se muestra un gráfico con la cantidad de productos por categoría -->
+                          <canvas id="chart1"></canvas>
+                      </div>
+                      <div class="col-sm-12 col-md-6 col-lg-4">
+                          <!-- Se muestra un gráfico con el porcentaje de productos por categoría -->
+                          <canvas id="chart2"></canvas>
+                      </div>
+                  </div>
+                  <!-- Importación de la librería para generar los gráficos. Para más información https://www.chartjs.org/ -->
+                  <script type="text/javascript" src="../../resources/js/chart.umd.min.js"></script>
+              </main>
             <!-- footer del sitio web -->
             <footer>
                   <div class="footer-content">
@@ -130,6 +97,17 @@
                               <span>Quesos</span></p>
                   </div>
             </footer>
+            <!-- IMPORTACIÓN DE ARCHIVOS JAVASCRIPT -->
+              <!-- Llamada al framework y librería de mensajes -->
+             
+              <script type="text/javascript" src="../../resources/js/bootstrap.bundle.min.js"></script>
+              <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+              <!-- Llamada al controlador general de la aplicación -->
+              <script type="text/javascript" src="../../controllers/utils/components.js"></script>
+              <!-- Llamada al controlador del sitio privado -->
+              <script type="text/javascript" src="../../controllers/utils/admin.js"></script>
+              <!-- Llamada al controlador de la página web -->
+              <script type="text/javascript" src="../../controllers/admin/dashboard.js"></script>
 
       </body>
 
