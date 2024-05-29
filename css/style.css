@@ -370,7 +370,7 @@ a{
     overflow-x: hidden;
   }
   .verme{
-    background-image: url(../api/image/maderaa.png);
+    background-image: url(../recursos/img/maderaa.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -381,7 +381,7 @@ a{
     margin-bottom: 4%;
   }
   .conejito{
-    background-image: url(../api/image/vacas.png);
+    background-image: url(../recursos/img/vacas.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -547,7 +547,7 @@ a{
     margin-bottom: 3%;
   }
   .nosotri{
-    background-image: url(../api/image/mamacita.png.jpeg);
+    background-image: url(../recursos/img/mamacita.png.jpeg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -613,7 +613,7 @@ a{
   }
  
   .tomjerry{
-    background-image: url(../api/image/mamacita.png.jpeg);
+    background-image: url(../recursos/img/mamacita.png.jpeg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -732,7 +732,7 @@ a{
    
   }
   .info{
-    background-image: url(../api/image/vacaputa.png);
+    background-image: url(../recursos/img/vacaputa.png);
     background-position: center center;
     background-repeat: no-repeat;
     text-align: center;
