@@ -118,7 +118,8 @@ const openCreate = () => {
     MODAL_TITLE.textContent = 'Crear Cliente';
     // Se prepara el formulario.
     SAVE_FORM.reset();
- 
+    
+   
 }
 
 /*
@@ -139,6 +140,7 @@ const openUpdate = async (id) => {
         MODAL_TITLE.textContent = 'Actualizar Cliente';
         // Se prepara el formulario.
         SAVE_FORM.reset();
+       
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
         ID_CLIENTE.value = ROW.id_cliente;
@@ -149,7 +151,7 @@ const openUpdate = async (id) => {
         TELEFONO_CLIENTE.value = ROW.telefono_cliente;
         RELACION_CLIENTE.value = ROW.relacion_cliente;
         FECHA_REGISTRO.value = ROW.fecha_registro;
-        fillSelect(CLIENTE_API, 'readAll', 'categoriaProducto', ROW.id_cliente);
+        fillSelect(CLIENTE_API, 'readAll', 'Cliente', ROW.id_cliente);
     } else {
         sweetAlert(2, DATA.error, false);
     }

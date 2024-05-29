@@ -7,11 +7,12 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-      <title>Proveedores</title>
+      <title>Proveedores Asociados</title>
       <link rel="stylesheet" href="../../css/style.css">
 </head>
 
 <body>
+
       <!-- Creamos el menu de navegacion -->
       <nav class="navcatalogo">
             <a href="" class="navbar-brand">
@@ -26,7 +27,7 @@
 
             <ul class="nav-list">
 
-                  <img src="../../api/image/titulo-removebg-preview.png" alt="" class="lactolac">
+                  <img src="../../recursos/img/titulo-removebg-preview.png" alt="" class="" width="200px" height="60px">
 
                   <li class="nav-item">
                         <a href="../../views/admin/CatalogoProductos.html" class="nav-link"><i
@@ -37,157 +38,139 @@
                                     class="bi bi-people-fill"></i>Clientes</a>
                   </li>
                   <li class="nav-item">
-                        <a href="../../views/admin/usuarios.html" class="nav-link"><i
-                                    class="bi bi-person-circle"></i>Usuarios</a>
-                  </li>
-                  <li class="nav-item">
                         <a href="../../views/admin/proveedores.html" class="nav-link"><i
-                                    class="bi bi-bag-check-fill"></i>Proveedores</a>
+                              class="bi bi-bag-check-fill"></i>Proveedores</a>
                   </li>
                   <li class="nav-item">
                         <a href="../../views/admin/reseñas.html" class="nav-link"><i
                                     class="bi bi-chat-dots"></i>Reseñas</a>
                   </li>
+                  <li class="nav-item">
+                        <a href="../../views/admin/index.html|" class="nav-link"><i class="bi bi-box-arrow-left"></i></i>Salir</a>
+                  </li>
             </ul>
       </nav>
+      <main>
+            <section class="p-3">
 
 
-      <section class="p-3">
+                  <p class="titulo">Administrar Proveedores</p>
 
+                  <!-- Ponemos el filtrador de la tabla -->
+                  <div class="row" class="container-fluid">
+                        <!-- Formulario de búsqueda -->
+                        <form class="col-sm-12 col-md-6" id="searchForm">
+                              <div class="row">
+                                    <div class="col-6">
+                                          <input style="border-radius:30px;" type="search" class="form-control"
+                                                name="search" placeholder="Buscar" required>
+                                    </div>
+                                    <div class="col-6">
+                                          <button type="submit" class="btn btn-success">
+                                                <i class="bi bi-search"></i>
+                                          </button>
+                                          <button type="reset" class="btn btn-secondary" onclick="fillTable()">
+                                                <i class="bi bi-x-square-fill"></i>
+                                          </button>
+                                    </div>
+                              </div>
+                        </form>
 
-            <p class="titulo">Administrar Proveedores</p>
+                        <!-- agregamos un boton para guardar nuevos productos -->
+                        <div class="col-sm-12 col-md-6 text-end">
+                              <div class="col-12">
 
+                                    <button class="btn btn-primary newUser" onclick="openCreate()"
+                                          ><i class="bi bi-plus"></i></button>
+                              </div>
 
-
-
-            <div class="row" class="container-fluid">
-
-
-                  <!-- Formulario de búsqueda en tabla-->
-                  <form class="col-sm-12 col-md-6" id="searchForm">
+                        </div>
+                        <!-- creamos la tabla donde se guardaran los productos -->
                         <div class="row">
-                              <div class="col-6">
-                                    <input style="border-radius:30px;" type="search" class="form-control" name="search"
-                                          placeholder="Buscar" required>
-                              </div>
-                              <div class="col-6">
-                                    <button type="submit" class="btn btn-success">
-                                          <i class="bi bi-search"></i>
-                                    </button>
-                                    <button type="reset" class="btn btn-secondary" onclick="fillTable()">
-                                          <i class="bi bi-x-square-fill"></i>
-                                    </button>
-                              </div>
-                        </div>
-                  </form>
-
-
-                  <div class="col-sm-12 col-md-6 text-end">
-                        <div class="col-12">
-
-                              <button class="btn btn-primary newUser" data-bs-toggle="modal"
-                                    data-bs-target="#userForm"><i class="bi bi-plus"></i></button>
-                        </div>
-
-                  </div>
-                  <!-- Creamos la tabla de proveedores -->
-                  <div class="row">
-                        <div class="col-12">
-                              <table class="table table-striped table-hover mt-3 text-center table-bordered">
-
-                                    <thead>
+                              <div class="col-12">
+                                    <table class="table table-striped table-hover mt-3 text-center table-bordered">
                                           <tr>
-                                                <th>ID</th>
-                                                <th>Imagen </th>
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>Empresa</th>
-                                                <th>Correo Proveedor</th>
-                                                <th>Numero Proveedor</th>
-                                                <th>Establecimiento</th>
-                                                <th>Registro</th>
-                                                <th>Acciones</th>
-                                          </tr>
-                                    </thead>
+                                                <td colspan="9" id="rowsFound"></td>
+                                            </tr>
 
-                                    <tbody id="data"></tbody>
+                                          <thead>
+                                                <tr>
+                                                      <th>ID</th>
+                                                      <th>Nombre</th>
+                                                      <th>Apellido</th>
+                                                      <th>Empresa</th>
+                                                      <th>Correo Proveedor</th>
+                                                      <th>telefono Proveedor</th>
+                                                      <th>Fecha de Registro</th>
+                                                      <th>Acciones</th>
+                                                </tr>
+                                          </thead>
 
-                              </table>
+                                          <tbody id="tableBody"></tbody>
+
+                                    </table>
+                              </div>
                         </div>
                   </div>
+            </section>
 
-      </section>
 
+            <!--Creamos el modal del catalogo-->
+            <div class="modal fade" id="saveModal">
+                  <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
 
-      <!--creamos el form del modal-->
-      <div class="modal fade" id="userForm">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                  <div class="modal-content">
-
-                        <div class="modal-header">
-                              <h4 class="modal-title">Crear Nuevo</h4>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                        </div>
-
-                        <div class="modal-body">
-
-                              <form action="#" id="myForm">
-
-                                    <div class="card imgholder">
-                                          <label for="imgInput" class="upload">
-                                                <input type="file" name="" id="imgInput">
-                                                <i class="bi bi-plus-circle-dotted"></i>
-                                          </label>
-                                          <img src="./image/Profile Icon.webp" alt="" width="200" height="200"
-                                                class="img">
-                                    </div>
-
-                                    <div class="inputField">
-                                          <div>
-                                                <label for="name">Nombre</label>
-                                                <input type="text" name="" id="name" required>
-                                          </div>
-                                          <div>
-                                                <label for="age">Apellido</label>
-                                                <input type="text" name="" id="age" required>
-                                          </div>
-                                          <div>
-                                                <label for="city">Empresa</label>
-                                                <input type="text" name="" id="city" required>
-                                          </div>
-                                          <div>
-                                                <label for="email">Correo Proveedor</label>
-                                                <input type="email" name="" id="email" required>
-                                          </div>
-                                          <div>
-                                                <label for="phone">Numero Proveedor</label>
-                                                <input type="text" name="" id="phone" minlength="11" maxlength="11"
-                                                      required>
-                                          </div>
-                                          <div>
-                                                <label for="post">Establecimiento</label>
-                                                <input type="text" name="" id="post" required>
-                                          </div>
-                                          <div>
-                                                <label for="sDate">Registro</label>
-                                                <input type="date" name="" id="sDate" required>
+                              <div class="modal-header">
+                                    <h4 class="modal-title" id="modalTitle"></h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                          aria-label="Close"></button>
+                              </div>
+                              <form  id="saveForm">
+                                    <input type="number" id="idprove" name="idprove" class="d-none">
+                                    <div class="modal-body">
+                                          <div class="inputField">
+                                                <div>
+                                                      <label for="name">Nombre</label>
+                                                      <input type="text" name="nombreCatalogo" id="nombreCatalogo" required>
+                                                </div>
+                                                <div>
+                                                      <label for="age">Apellido</label>
+                                                      <input type="text" name="cantidadCatalogo" id="cantidadCatalogo" required>
+                                                </div>
+                                                <div>
+                                                      <label for="city">Empresa</label>
+                                                      <input type="text" name="precioCatalogo" id="precioCatalogo" required>
+                                                </div>
+                                                <div>
+                                                      <label for="email">Correo Proveedor</label>
+                                                      <input type="email" name="correoCatalogo" id="correoCatalogo" required>
+                                                </div>
+                                                <div>
+                                                      <label for="phone">Telefono Proveedor</label>
+                                                      <input type="number" name="telefonoCatalogo" required id="telefonoCatalogo">
+                                                </div>
+                                                <div>
+                                                      <label for="sDate">Fecha de Registro</label>
+                                                      <input type="date" name="registroCatalogo" id="registroCatalogo" required>
+                                                </div>
                                           </div>
                                     </div>
 
+                                    <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cerrar</button>
+                                          <button type="submit" class="btn btn-primary submit">Asignar</button>
+                                    </div>
                               </form>
-                        </div>
-                        <!-- ponemos el footer del modal con las opciones de cerrar y crear -->
-                        <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                              <button type="submit" form="myForm" class="btn btn-primary submit">Submit</button>
                         </div>
                   </div>
             </div>
-      </div>
+      </main>
 
-      <!-- footer del sitio web-->
+      <!--Leer los datos de los modales-->
 
+
+      <!--footer del sitio web -->
       <footer>
             <div class="footer-content">
                   <center>
@@ -206,17 +189,17 @@
             </div>
             <div class="footer-bottom">
                   <p style="font-family: Arial;">copyright &copy;2024 Lacteos Doña Queso. designed by
-                        <span>Quesos</span></p>
+                        <span>Quesos</span>
+                  </p>
             </div>
       </footer>
 
-
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-
+      <script type="text/javascript" src="../../js/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="../../js/sweetalert.min.js"></script>
+      <!-- Llamada al controlador general de la aplicación -->
+      <script type="text/javascript" src="../../controladores/utils/components.js"></script>
+      <!-- Llamada al controlador del sitio privado -->
       <script src="../../controladores/admin/proveedor.js"></script>
-
 
 </body>
 

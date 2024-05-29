@@ -23,13 +23,13 @@ class ProveedorHandler
     public function checkUser($mail, $password)
     {
         $sql = 'SELECT id_prove, correo_pro
-                FROM Proveedores
+                FROM proveedores
                 WHERE correo_pro = ?';
         $params = array($mail);
         $data = Database::getRow($sql, $params);
         if (password_verify($password, $data['correo_pro'])) {
             $this->id = $data['id_prove'];
-            $this->correocli = $data['correo_pro'];
+            $this->correopro = $data['correo_pro'];
             return true;
         } else {
             return false;
@@ -38,7 +38,7 @@ class ProveedorHandler
 
     public function checkStatus()
     {
-        if ($this->fechaingreso) {
+        if ($this->fecharegistro) {
             $_SESSION['id_prove'] = $this->id;
             $_SESSION['correo_pro'] = $this->correopro;
             return true;
@@ -49,7 +49,7 @@ class ProveedorHandler
 
     public function changePassword()
     {
-        $sql = 'UPDATE Proveedores
+        $sql = 'UPDATE proveedores
                 WHERE id_prove = ?';
         $params = array( $this->id);
         return Database::executeRow($sql, $params);
@@ -57,16 +57,16 @@ class ProveedorHandler
 
     public function editProfile()
     {
-        $sql = 'UPDATE Proveedores
+        $sql = 'UPDATE proveedores
                 SET nombre_pro = ?, apellido_pro = ?, empresa = ?, correo_pro = ?, numero_pro = ?, fecha_registro = ?
-                WHERE id_cliente = ?';
+                WHERE id_prove = ?';
         $params = array($this->nombrepro, $this->apellidopro, $this->empresa, $this->correopro, $this->numeropro,  $this->fecharegistro, $this->id);
         return Database::executeRow($sql, $params);
     }
 
     public function changeStatus()
     {
-        $sql = 'UPDATE Proveedores
+        $sql = 'UPDATE proveedores
                 SET fecha_registro = ?
                 WHERE id_prove = ?';
         $params = array($this->fecharegistro, $this->id);
@@ -80,7 +80,7 @@ class ProveedorHandler
     {
         $value = '%' . Validator::getSearchValue() . '%';
         $sql = 'SELECT id_prove, nombre_pro, apellido_pro, empresa, correo_pro,numero_pro , fecha_registro
-                FROM Proveedores
+                FROM proveedores
                 WHERE apellido_pro LIKE ? OR nombre_pro LIKE ? OR correo_pro LIKE ?
                 ORDER BY nombre_pro';
         $params = array($value, $value, $value);
@@ -89,7 +89,7 @@ class ProveedorHandler
 
     public function createRow()
     {
-        $sql = 'INSERT INTO Proveedores(nombre_pro, apellido_pro, empresa, correo_pro, numero_pro, fecha_registro)
+        $sql = 'INSERT INTO proveedores(nombre_pro, apellido_pro, empresa, correo_pro, numero_pro, fecha_registro)
                 VALUES(?, ?, ?, ?, ?, ?)';
         $params = array($this->nombrepro, $this->apellidopro, $this->empresa, $this->correopro, $this->numeropro, $this->fecharegistro);
         return Database::executeRow($sql, $params);
@@ -98,7 +98,7 @@ class ProveedorHandler
     public function readAll()
     {
         $sql = 'SELECT id_prove, nombre_pro, apellido_pro, empresa, correo_pro,numero_pro , fecha_registro
-                FROM Proveedores
+                FROM proveedores
                 ORDER BY nombre_pro';
         return Database::getRows($sql);
     }
@@ -106,23 +106,23 @@ class ProveedorHandler
     public function readOne()
     {
         $sql = 'SELECT id_prove, nombre_pro, apellido_pro, empresa, correo_pro,numero_pro , fecha_registro
-                FROM Proveedores = ?';
+                FROM proveedores = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
 
     public function updateRow()
     {
-        $sql = 'UPDATE Proveedores
-                SET nombre_pro = ?, apellido_pro = ?, empresa = ?, correo_pro = ?, numero_pro = ?, fecha_registro = ?
-                WHERE id_cliente = ?';
-        $params = array($this->nombrepro, $this->apellidopro, $this->empresa, $this->correopro, $this->numeropro, $this->fecharegistro, $this->id);
+        $sql = 'UPDATE proveedores
+                SET nombre_pro = ?, apellido_pro = ?, empresa = ?, correo_pro = ?, numero_pro = ?, fecha_registro = ?, id_catalogo = ?
+                WHERE id_prove = ?';
+        $params = array($this->nombrepro, $this->apellidopro, $this->empresa, $this->correopro, $this->numeropro, $this->fecharegistro, $this->id, $_SESSION['id_catalogo']);
         return Database::executeRow($sql, $params);
     }
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM Proveedores
+        $sql = 'DELETE FROM proveedores
                 WHERE id_prove = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
@@ -131,7 +131,7 @@ class ProveedorHandler
     public function checkDuplicate($value)
     {
         $sql = 'SELECT id_prove
-                FROM Proveedores
+                FROM proveedores
                 WHERE correo_pro = ? OR numero_pro = ?';
         $params = array($value, $value);
         return Database::getRow($sql, $params);

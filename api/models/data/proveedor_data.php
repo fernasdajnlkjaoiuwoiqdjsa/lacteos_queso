@@ -6,7 +6,7 @@ require_once('../../models/handler/proveedores_handler.php');
 /*
  *  Clase para manejar el encapsulamiento de los datos de la tabla CATEGORIA.
  */
-class CategoriaData extends CategoriaHandler
+class ProveedorData extends ProveedorHandler
 {
     /*
      *  Atributos adicionales.
@@ -23,7 +23,7 @@ class CategoriaData extends CategoriaHandler
             $this->id = $value;
             return true;
         } else {
-            $this->data_error = 'El identificador del catalogo es incorrecto';
+            $this->data_error = 'El identificador del Proveedor es incorrecto';
             return false;
         }
     }
@@ -92,18 +92,13 @@ class CategoriaData extends CategoriaHandler
         }
     }
 
-    public function setTelfono($value, $min = 2, $max = 250)
+    public function setTelfono($value)
     {
-        if (!$value) {
-            return true;
-        } elseif (!Validator::validateString($value)) {
-            $this->data_error = 'El telefono contiene caracteres prohibidos';
-            return false;
-        } elseif (Validator::validateLength($value, $min, $max)) {
-            $this->telefonopro = $value;
-            return true;
+        if (Validator::validatePhone($value)) {
+            $this->numeropro = $value;
+            return true;  
         } else {
-            $this->data_error = 'El telfono debe tener una longitud entre ' . $min . ' y ' . $max;
+            $this->data_error = 'El telefono contiene caracteres prohibidos';
             return false;
         }
     }

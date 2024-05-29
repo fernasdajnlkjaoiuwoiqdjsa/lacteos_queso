@@ -1,6 +1,6 @@
-CREATE DATABASE Lacteos;
+CREATE DATABASE lacteos;
 
-USE Lacteos
+USE lacteos
 
 CREATE TABLE administrador(
 id_admin INT PRIMARY KEY NOT NULL,
@@ -25,26 +25,12 @@ CONSTRAINT fk_adm FOREIGN KEY(id_admin) REFERENCES administrador(id_admin)
 
 
 
-CREATE TABLE Usuarios(
-id_usuario INT PRIMARY KEY NOT NULL,
-id_admin INT,
-nombre_usuario VARCHAR(50),
-edad_usuario DATE,
-tipo_usuario VARCHAR(60),
-correo_usuario VARCHAR(250),
-telefono_usuario NUMERIC(5,2) ,
-cuenta_usuario VARCHAR(60),
-fecha_registro DATE DEFAULT NOW(),
-CONSTRAINT fk_ad FOREIGN KEY(id_admin) REFERENCES administrador(id_admin)	
-);
-
-
 CREATE TABLE CatalogoProducto(
 id_catalogo INT PRIMARY KEY NOT NULL,
 id_admin INT, 
 nombre_catalogo VARCHAR(50),
 cantidad NUMERIC(5,2),
-precio VARCHAR(60),
+precio_producto VARCHAR(60),
 correo_proveedor VARCHAR(250),
 telefono_proveedor NUMERIC(5,2),
 lugar VARCHAR(60),
@@ -69,6 +55,7 @@ CONSTRAINT fk_cli FOREIGN KEY(id_catalogo) REFERENCES CatalogoProducto(id_catalo
 CREATE TABLE Pedidos(
 id_pedido INT PRIMARY KEY NOT NULL,
 id_cliente INT,
+id_detale INT,
 estado_pedido VARCHAR(50),
 fecha_registro DATE,
 CONSTRAINT fk_cl FOREIGN KEY(id_cliente) REFERENCES Clientes(id_cliente)
@@ -80,7 +67,6 @@ DROP TABLE Pedidos
 CREATE TABLE DetallePedido(
 id_detale INT PRIMARY KEY NOT NULL,
 id_pedido INT,
-id_catalogo INT,
 nombre_detalle VARCHAR(60),
 cantidad_catpro INT,
 fecha_registro DATE DEFAULT NOW(),

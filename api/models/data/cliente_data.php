@@ -79,7 +79,7 @@ class ClienteData extends ClienteHandler
             $this->data_error = 'El correo ingresado ya existe';
             return false;
         } else {
-            $this->correocli = $value;
+            $this->cuenta = $value;
             return true;
         }
     }
@@ -98,13 +98,13 @@ class ClienteData extends ClienteHandler
 	public function setRelacion($value, $min = 2, $max = 50)
     {
         if (!Validator::validateAlphabetic($value)) {
-            $this->data_error = 'la relacion debe ser un valor alfabético';
+            $this->data_error = 'la contra';
             return false;
         } elseif (Validator::validateLength($value, $min, $max)) {
-            $this->relacioncli = $value;
+            $this->contra = $value;
             return true;
         } else {
-            $this->data_error = 'la relacion debe tener una longitud entre ' . $min . ' y ' . $max;
+            $this->data_error = 'la contra ' . $min . ' y ' . $max;
             return false;
         }
     }
