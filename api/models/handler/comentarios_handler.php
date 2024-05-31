@@ -11,12 +11,9 @@ class CatalogoHandler
      */
     protected $id = null;
     protected $nombredecli = null;
-    protected $cantidad = null;
-    protected $precio = null;
-    protected $correopro = null;
-    protected $telefonopro = null;
-    protected $lugar = null;
-    protected $fechaingreso = null;
+    protected $descripcion = null;
+    protected $estado = null;
+    protected $fechacomentario = null;
     
 
     // linea d codigo para establecr la imagen.
@@ -28,44 +25,44 @@ class CatalogoHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id_catalogo, nombre_catalogo, cantidad,precio,correo_proveedor,telefono_proveedor,lugar,fecha_ingreso
-                FROM catalogoproducto
-                WHERE nombre_catalogo LIKE ? OR precio LIKE ?
-                ORDER BY nombre_catalogo';
+        $sql = 'SELECT id_valoracion, nombre_cliente, descripcion_pro,estado_comentario,fecha_comentario
+                FROM comentarios
+                WHERE nombre_cliente LIKE ? OR descripcion_pro LIKE ?
+                ORDER BY nombre_cliente';
         $params = array($value, $value);
         return Database::getRows($sql, $params);
     }
 
     public function createRow()
     {
-        $sql = 'INSERT INTO catalogoproducto(nombre_catalogo, cantidad,precio, correo_proveedor, telefono_proveedor, lugar, fecha_ingreso, id_admin)
-                VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombre, $this->cantidad, $this->precio,$this->correopro, $this->telefonopro, $this->lugar, $this->fechaingreso, $_SESSION['id_admin']);
+        $sql = 'INSERT INTO comentarios(nombre_cliente, descripcion_pro, estado_comentario, fecha_comentario, id_detale)
+                VALUES(?, ?, ?, ?, ?)';
+        $params = array($this->nombredecli, $this->descripcion, $this->estado,$this->fechacomentario, $_SESSION['id_detale']);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT id_catalogo, nombre_catalogo, cantidad, precio, correo_proveedor, telefono_proveedor, lugar, fecha_ingreso
-                FROM catalogoproducto
-                ORDER BY nombre_catalogo';
+        $sql = 'SELECT id_valoracion, nombre_cliente, descripcion_pro, estado_comentario, fecha_comentario
+                FROM comentarios
+                ORDER BY nombre_cliente';
         return Database::getRows($sql);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT id_catalogo, nombre_catalogo, cantidad, precio,correo_proveedor, telefono_proveedor,lugar,fecha_ingreso
-                FROM catalogoproducto
-                WHERE id_catalogo = ?';
+        $sql = 'SELECT id_valoracion, nombre_cliente, descripcion_pro, estado_comentario,fecha_comentario
+                FROM comentarios
+                WHERE id_valoracion = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
 
     public function readFilename()
     {
-        $sql = 'SELECT nombre_catalogo
-                FROM catalogoproducto
-                WHERE id_catalogo = ?';
+        $sql = 'SELECT nombre_cliente
+                FROM comentarios
+                WHERE id_valoracion = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
