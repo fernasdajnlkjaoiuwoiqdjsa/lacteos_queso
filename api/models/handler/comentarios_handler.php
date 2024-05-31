@@ -4,7 +4,7 @@ require_once('../../helpers/database.php');
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla CATEGORIA.
  */
-class CatalogoHandler
+class ComentarioHandler
 {
     /*
      *  Declaración de atributos para el manejo de datos.
@@ -37,7 +37,7 @@ class CatalogoHandler
     {
         $sql = 'INSERT INTO comentarios(nombre_cliente, descripcion_pro, estado_comentario, fecha_comentario, id_detale)
                 VALUES(?, ?, ?, ?, ?)';
-        $params = array($this->nombredecli, $this->descripcion, $this->estado,$this->fechacomentario, $_SESSION['id_detale']);
+        $params = array($this->nombredecli, $this->descripcion, $this->estado,$this->fechacomentario, $this->id);
         return Database::executeRow($sql, $params);
     }
 
@@ -69,26 +69,26 @@ class CatalogoHandler
 
     public function updateRow()
     {
-        $sql = 'UPDATE catalogoproducto
-                SET nombre_catalogo = ?, precio = ?, correo_proveedor = ?, telefono_proveedor = ?, lugar = ?, fecha_ingreso = ?
-                WHERE id_catalogo = ?';
-        $params = array($this->nombre, $this->precio, $this->correopro, $this->telefonopro, $this->lugar,$this->fechaingreso ,$this->id);
+        $sql = 'UPDATE comentarios
+                SET nombre_cliente = ?, descripcion_pro = ?, estado_comentario = ?, fecha_comentario = ? id_detale = ?
+                WHERE id_valoracion = ?';
+        $params = array($this->nombredecli, $this->descripcion, $this->estado, $this->fechacomentario ,$_SESSION['id_detale'] );
         return Database::executeRow($sql, $params);
     }
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM catalogoproducto
-                WHERE id_catalogo = ?';
+        $sql = 'DELETE FROM comentarios
+                WHERE id_valoracion = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
-    public function checkDuplicate($value)
+    /*public function checkDuplicate($value)
     {
-        $sql = 'SELECT id_catalogo
-                FROM catalogoproducto
+        $sql = 'SELECT id_valoracion
+                FROM comentarios
                 WHERE correo_pro = ? OR telefono_pro = ?';
         $params = array($value, $value);
         return Database::getRow($sql, $params);
-    }
+    }*/
 }

@@ -1,5 +1,5 @@
 // Constantes para completar las rutas de la API.
-const PRODUCTO_API = 'services/admin/catalogo.php';
+const PRODUCTO_API = 'services/admin/comentarios.php';
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer el contenido de la tabla.
@@ -13,7 +13,7 @@ const SAVE_FORM = document.getElementById('saveForm'),
     ID_PRODUCTO = document.getElementById('idCatalogo'),
     NOMBRE_PRODUCTO = document.getElementById('nombreCatalogo'),
     CORREO_PROVEEDOR = document.getElementById('cantidadCatalogo'),
-    PRECIO_PRODUCTO = document.getElementById('precioCatalogo'),
+    PRECIO_PRODUCTO = document.getElementById('estadocomentario'),
     FECHA_INGRESO = document.getElementById('registroCatalogo');
 
 // Método del evento para cuando el documento ha cargado.
@@ -112,7 +112,7 @@ const openCreate = () => {
     MODAL_TITLE.textContent = 'Crear Comentario';
     // Se prepara el formulario.
     SAVE_FORM.reset();
-    CORREO_PROVEEDOR.disabled = false;
+  
    
 }
 
@@ -124,7 +124,7 @@ const openCreate = () => {
 const openUpdate = async (id) => {
     // Se define un objeto con los datos del registro seleccionado.
     const FORM = new FormData();
-    FORM.append('idCatalogo', id);
+    FORM.append('idValoracion', id);
     // Petición para obtener los datos del registro solicitado.
     const DATA = await fetchData(PRODUCTO_API, 'readOne', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
@@ -142,7 +142,7 @@ const openUpdate = async (id) => {
         CORREO_PROVEEDOR.value = ROW.descripcion_pro;
         PRECIO_PRODUCTO.value = ROW.estado_comentario;
         FECHA_INGRESO.value = ROW.fecha_comentario;
-        fillSelect(CATEGORIA_API, 'readAll', 'categoriaProducto', ROW.id_valoracion);
+        fillSelect(CATEGORIA_API, 'readAll', 'Comentario', ROW.id_valoracion);
     } else {
         sweetAlert(2, DATA.error, false);
     }
@@ -155,7 +155,7 @@ const openUpdate = async (id) => {
 */
 const openDelete = async (id) => {
     // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
-    const RESPONSE = await confirmAction('¿Desea eliminar el catalogo de forma permanente?');
+    const RESPONSE = await confirmAction('¿Desea eliminar el comentario de forma permanente?');
     // Se verifica la respuesta del mensaje.
     if (RESPONSE) {
         // Se define una constante tipo objeto con los datos del registro seleccionado.
@@ -182,7 +182,7 @@ const openDelete = async (id) => {
 */
 const openReport = () => {
     // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
-    const PATH = new URL(`${SERVER_URL}reports/admin/catalogo.php`);
+    const PATH = new URL(`${SERVER_URL}reports/admin/comentarios.php`);
     // Se abre el reporte en una nueva pestaña.
     window.open(PATH.href);
 }
