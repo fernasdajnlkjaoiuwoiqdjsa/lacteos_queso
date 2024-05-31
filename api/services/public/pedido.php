@@ -21,7 +21,7 @@ if (isset($_GET['action'])) {
                 if (!$pedido->startOrder()) {
                     $result['error'] = 'Ocurrió un problema al iniciar el pedido';
                 } elseif (
-                    !$pedido->setProducto($_POST['idProducto']) or
+                    !$pedido->setIdPedido($_POST['idPedido']) or
                     !$pedido->setCantidad($_POST['cantidadProducto'])
                 ) {
                     $result['error'] = $pedido->getDataError();
@@ -46,7 +46,7 @@ if (isset($_GET['action'])) {
             case 'updateDetail':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$pedido->setIdDetalle($_POST['idDetalle']) or
+                    !$pedido->setIdDetalle($_POST['idDetale']) or
                     !$pedido->setCantidad($_POST['cantidadProducto'])
                 ) {
                     $result['error'] = $pedido->getDataError();
@@ -59,7 +59,7 @@ if (isset($_GET['action'])) {
                 break;
             // Acción para remover un producto del carrito de compras.
             case 'deleteDetail':
-                if (!$pedido->setIdDetalle($_POST['idDetalle'])) {
+                if (!$pedido->setIdDetalle($_POST['idDetale'])) {
                     $result['error'] = $pedido->getDataError();
                 } elseif ($pedido->deleteDetail()) {
                     $result['status'] = 1;

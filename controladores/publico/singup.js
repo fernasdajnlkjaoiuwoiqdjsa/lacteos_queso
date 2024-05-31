@@ -5,11 +5,6 @@ vanillaTextMask.maskInput({
     inputElement: document.getElementById('telefonoCliente'),
     mask: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
 });
-// Llamada a la función para establecer la mascara del campo DUI.
-vanillaTextMask.maskInput({
-    inputElement: document.getElementById('duiCliente'),
-    mask: [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/]
-});
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
@@ -30,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Se declara e inicializa una variable para establecer el formato de la fecha.
     const DATE = `${year}-${month}-${day}`;
     // Se asigna la fecha como valor máximo en el campo del formulario.
-    document.getElementById('nacimientoCliente').max = DATE;
+    
 });
 
 // Método del evento para cuando se envía el formulario de registrar cliente.
