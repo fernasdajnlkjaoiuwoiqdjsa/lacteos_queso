@@ -35,7 +35,7 @@ class PedidoHandler
         $sql = 'SELECT id_pedido
                 FROM pedidos
                 WHERE estado_pedido = ? AND id_cliente = ?';
-        $params = array($this->estado, $_SESSION['idCliente']);
+        $params = array($this->estado, $_SESSION['id_cliente']);
         if ($data = Database::getRow($sql, $params)) {
             $_SESSION['idPedido'] = $data['id_pedido'];
             return true;
