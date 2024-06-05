@@ -32,14 +32,16 @@ const loadTemplate = async () => {
                 <header>
                     <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
                         <div class="container">
-                            <a class="navbar-brand" href="index.html"><img src="../../recursos/img/titulo-removebg-preview.png.png" height="50" alt="Lacteos"></a>
+                            <a class="navbar-brand" href="index.html"><img src="../../recursos/img/titulo-removebg-preview.png" height="50" alt="Lacteos"></a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div class="navbar-nav ms-auto">
+                                    <a class="nav-link" href="inicio.html"><i class="bi bi-house-door"></i> Inicio</a>
                                     <a class="nav-link" href="index.html"><i class="bi bi-shop"></i> Catálogo</a>
-                                    <a class="nav-link" href="cart.html"><i class="bi bi-cart"></i> Carrito</a>
+                                    <a class="nav-link" href="nosotros.html"><i class="bi bi-people-fill"></i>Nosotros</a>
+                                    <a class="nav-link" href="carrito.html"><i class="bi bi-cart"></i> Carrito</a>
                                     <a class="nav-link" href="#" onclick="logOut()"><i class="bi bi-box-arrow-left"></i> Cerrar sesión</a>
                                 </div>
                             </div>
@@ -56,7 +58,7 @@ const loadTemplate = async () => {
             <header>
                 <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
                     <div class="container">
-                        <a class="navbar-brand" href="index.html"><img src="../../recursos/img/titulo-removebg-preview.png.png" height="50" alt="CoffeeShop"></a>
+                        <a class="navbar-brand" href="index.html"><img src="../../recursos/img/titulo-removebg-preview.png" height="50" alt="CoffeeShop"></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>

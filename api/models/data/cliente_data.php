@@ -95,16 +95,13 @@ class ClienteData extends ClienteHandler
         }
     }
 
-	public function setRelacion($value, $min = 2, $max = 50)
+	public function setRelacion($value)
     {
-        if (!Validator::validateAlphabetic($value)) {
-            $this->data_error = 'la contra';
-            return false;
-        } elseif (Validator::validateLength($value, $min, $max)) {
-            $this->contra = $value;
+        if (Validator::validatePassword($value)) {
+            $this->contra = password_hash($value, PASSWORD_DEFAULT);
             return true;
         } else {
-            $this->data_error = 'la contra ' . $min . ' y ' . $max;
+            $this->data_error = Validator::getPasswordError();
             return false;
         }
     }

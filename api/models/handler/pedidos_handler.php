@@ -84,6 +84,8 @@ class PedidoHandler
         return Database::getRows($sql, $params);
     }
 
+    
+
     // Método para finalizar un pedido por parte del cliente.
     public function finishOrder()
     {

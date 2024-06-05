@@ -17,6 +17,7 @@ class ClienteHandler
     protected $telefonocli = null;
     protected $contra = null;
     protected $fechaingreso = null;
+    protected $estadocliente = null;
 
 
     /*
@@ -24,14 +25,16 @@ class ClienteHandler
     */
     public function checkUser($mail, $password)
     {
-        $sql = 'SELECT id_cliente, cuenta_cliente
+        $sql = 'SELECT id_cliente, contra , estado_cliente, cuenta_cliente
                 FROM clientes
                 WHERE cuenta_cliente = ?';
         $params = array($mail);
-        $data = Database::getRow($sql, $params);
-        if (password_verify($password, $data['cuenta_cliente'])) {
+        if(!$data = Database::getRow($sql, $params)){
+            return false;
+        } elseif (password_verify($password, $data['contra'])) {
             $this->id = $data['id_cliente'];
             $this->cuenta = $data['cuenta_cliente'];
+            $this->estadocliente = $data['estado_cliente'];
             return true;
         } else {
             return false;
@@ -40,7 +43,7 @@ class ClienteHandler
 
     public function checkStatus()
     {
-        if ($this->fechaingreso) {
+        if ($this->estadocliente) {
             $_SESSION['id_cliente'] = $this->id;
             $_SESSION['cuenta_cliente'] = $this->cuenta;
             return true;
@@ -93,7 +96,7 @@ class ClienteHandler
     {
         $sql = 'INSERT INTO clientes(nombre_cliente, edad_cliente, direccion, cuenta_cliente, telefono_cliente, contra, fecha_registro)
                 VALUES(?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombrecli, $this->edad,$this->direccion, $this->cuenta, $this->telefonocli, $this->contra, $this->fechaingreso, $this->id);
+        $params = array($this->nombrecli, $this->edad,$this->direccion, $this->cuenta, $this->telefonocli, $this->contra, $this->fechaingreso);
         return Database::executeRow($sql, $params);
     }
 
