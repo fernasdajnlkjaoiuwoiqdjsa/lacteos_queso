@@ -24,7 +24,9 @@
     <!-- Custom styles for this template -->
     <link href="assets/sticky-footer-navbar.css" rel="stylesheet">
 	<link href="assets/style.css" rel="stylesheet">
-	<link href="../../recursos/css/style.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="recursos/css/style.css" rel="stylesheet">
+
     </head>
 
     <body>
