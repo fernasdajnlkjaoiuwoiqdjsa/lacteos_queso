@@ -1,5 +1,5 @@
 <?php
-require_once ("dbconect.php");
+require_once ("../../helpers/dbconect.php");
 $record_set = array();
 $sql = "SELECT * FROM tbl_comentarios ORDER BY co_id asc";
 $result = $conn->query($sql);

@@ -1,5 +1,5 @@
 <?php
-require_once ("dbconect.php");
+require_once ("../../helpers/dbconect.php");
 $commentId = isset($_POST['comment_id']) ? $_POST['comment_id'] : "";
 $comment = isset($_POST['comment']) ? $_POST['comment'] : "";
 $commentSenderName = isset($_POST['name']) ? $_POST['name'] : "";

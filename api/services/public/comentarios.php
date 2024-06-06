@@ -5,32 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <title>Comentarios</title>
-    
-    
-<link  rel="icon"   href="logo.png" type="image/png" />
-<link href="vendor/emoji-picker/lib/css/emoji.css" rel="stylesheet">
-<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<script src="vendor/emoji-picker/lib/js/config.js"></script>
-<script src="vendor/emoji-picker/lib/js/util.js"></script>
-<script src="vendor/emoji-picker/lib/js/jquery.emojiarea.js"></script>
-<script src="vendor/emoji-picker/lib/js/emoji-picker.js"></script>
+    <link  rel="icon"   href="../../css/vacaputa.png" type="image/png" />
+    <link href="../../vendor/emoji-picker/lib/css/emoji.css" rel="stylesheet">
+    <script src="../../vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../vendor/emoji-picker/lib/js/config.js"></script>
+    <script src="../../vendor/emoji-picker/lib/js/util.js"></script>
+    <script src="../../vendor/emoji-picker/lib/js/jquery.emojiarea.js"></script>
+    <script src="../../vendor/emoji-picker/lib/js/emoji-picker.js"></script>
 
     <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="dist/css/bootstrap-grid.css" rel="stylesheet">
-	<link href="dist/css/bootstrap-reboot.css" rel="stylesheet">
-	<link href="dist/css/bootstrap-reboot.min.css" rel="stylesheet">
-	<link href="dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../dist/css/bootstrap-grid.css" rel="stylesheet">
+	<link href="../../dist/css/bootstrap-reboot.css" rel="stylesheet">
+	<link href="../../dist/css/bootstrap-reboot.min.css" rel="stylesheet">
+	<link href="../../dist/css/bootstrap.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="assets/sticky-footer-navbar.css" rel="stylesheet">
-	<link href="assets/style.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link href="recursos/css/style.css" rel="stylesheet">
-
+	<link href="../../assets/style.css" rel="stylesheet">
+	<link href="../../css/style.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link href="../../css/style copy.css" rel="stylesheet">
     </head>
 
-    <body>
+<body>
 
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <a class="nav-link active" aria-current="page" href="#">
+                <img src="../../css/titulo-removebg-preview.png" alt="" width="60" height="60" class="container-fluid">
+            </a>
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="views/publico/inicio.html"><i
+                                    class="bi bi-house-door">Inicio</i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="views/publico/index.html"><i
+                                    class="bi bi-people-fill">Catalogo de Productos</i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="views/publico/nosotros.html"><i
+                                    class="bi bi-people-fill">Acerca de
+                                    Nosotros</i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="views/publico/carrito.html"><i
+                                    class="bi bi-people-fill">Carrito</i></a>
+                        </li> 
+                        <li class="nav-item">
+                              <a class="nav-link" aria-current="page" href="comentarios.php"><i class="bi bi-chat-dots"></i>comentarios</i></a>
+                          </li> 
+                    </ul>
+                </div>
+            </div>
+        </nav>
+	
 
 <!-- Begin page content -->
 
@@ -99,7 +131,7 @@ $(function () {
 	// Initializes and creates emoji set from sprite sheet
 	window.emojiPicker = new EmojiPicker({
 		emojiable_selector: '[data-emojiable=true]',
-		assetsPath: 'vendor/emoji-picker/lib/img/',
+		assetsPath: '../../vendor/emoji-picker/lib/img/',
 		popupButtonClasses: 'icon-smile'
 	});
 
@@ -129,7 +161,7 @@ function (data) {
 		if (parent == "0")
 		{
 			comments =  "<div class='comment-row'>"+
-			"<div class='comment-info'><img src='user.png'><span class='posted-by'>" + data[i]['comentario_nombre'].toUpperCase() + "</span></div>" + 
+			"<div class='comment-info'><img src='../../css/user.png'><span class='posted-by'>" + data[i]['comentario_nombre'].toUpperCase() + "</span></div>" + 
 			"<div class='comment-text'>" + data[i]['comentarios'] + "</div>"+
 			"<div><a class='btn-reply' onClick='postReply(" + commentId + ")'>Respuesta</a></div>"+
 			"</div>";
@@ -151,7 +183,7 @@ function listReplies(commentId, data, list) {
 		if (commentId == data[i].parent_id)
 		{
 			var comments = "<div class='comment-row'>"+
-			" <div class='comment-info'><img src='user.png'><span class='posted-by'>" + data[i]['comentario_nombre'].toUpperCase() + " </span></div>" + 
+			" <div class='comment-info'><img src='../css/user.png'><span class='posted-by'>" + data[i]['comentario_nombre'].toUpperCase() + " </span></div>" + 
 			"<div class='comment-text'>" + data[i]['comentarios'] + "</div>"+
 			"<div><a class='btn-reply' onClick='postReply(" + data[i]['co_id'] + ")'>Respuesta</a></div>"+
 			"</div>";
@@ -198,6 +230,6 @@ function listReplies(commentId, data, list) {
             </div>
       </footer>
 <!-- Bootstrap core JavaScript--> 
-<script src="dist/js/bootstrap.min.js"></script> 
+<script src="../../dist/js/bootstrap.min.js"></script> 
 </body>
 </html>

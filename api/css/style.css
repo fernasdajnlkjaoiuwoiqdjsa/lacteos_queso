@@ -84,5 +84,5 @@ span.posted-by {
     width: 16px;
     height: 16px;
     display: flex;
-    background: url(primary-smile.png);
+    background: url(../css/primary-smile.png);
 }
