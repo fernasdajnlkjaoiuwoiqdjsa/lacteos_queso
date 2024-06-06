@@ -86,6 +86,15 @@ fecha_comentario DATE NOT NULL,
 CONSTRAINT fk_deta FOREIGN KEY (id_detale) REFERENCES DetallePedido(id_detale)
 );
 
+CREATE TABLE `tbl_comentarios` (
+  `co_id` int(11) NOT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `comentarios` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `comentario_nombre` varchar(40) CHARACTER SET utf8 NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 
 
 
