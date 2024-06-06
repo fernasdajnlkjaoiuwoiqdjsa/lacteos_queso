@@ -24,6 +24,7 @@
     <!-- Custom styles for this template -->
     <link href="assets/sticky-footer-navbar.css" rel="stylesheet">
 	<link href="assets/style.css" rel="stylesheet">
+	<link href="../../recursos/css/style.css" rel="stylesheet">
     </head>
 
     <body>
@@ -171,12 +172,30 @@ function listReplies(commentId, data, list) {
       
     </div>
 <!-- Fin container -->
-<footer class="footer">
-      <div class="container"> <span class="text-muted">
-        <p>Visíta <a href="" target="_blank">Fuente Web</a></p>
-        </span> </div>
-    </footer>
+<footer>
+            <div class="footer-content">
+                  <center>
+                        <h3>Lacteos Doña Queso</h3>
+                  </center>
+                  <p>Este año empezamos con la distrubucion de los mejores lacteos en toda ciudad ya que son productos
+                        100%
+                        natural</p>
+                  <ul class="socials">
+                        <li><a href="https://www.facebook.com/profile.php?id=61557180795985&mibextid=ZbWKwL"><i
+                                          class="bi bi-facebook"></i></a></li>
+                        <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                        <li><a href="https://chat.whatsapp.com/Ja1XaBabc690ruCBIbzXcf"><i class="bi bi-whatsapp"></i></a></li>
+                        <li><a href="https://www.instagram.com/papiriki22?igsh=eDJieml6MTIyeGNj"><i class="bi bi-instagram"></i></a></li>
+                        <li><a href="https://www.tiktok.com/@teclas568?_t=8krtubotSgX&_r=1"><i class="bi bi-tiktok"></i></a></li>
+                  </ul>
+            </div>
+            <div class="footer-bottom">
+                  <p style="font-family: Arial;">copyright &copy;2024 Lacteos Doña Queso. designed by
+                        <span>Quesos</span>
+                  </p>
+            </div>
+      </footer>
 <!-- Bootstrap core JavaScript--> 
-<script type="text/javascript" src="../../dist/js/bootstrap.min.js"></script> 
+<script src="dist/js/bootstrap.min.js"></script> 
 </body>
 </html>
