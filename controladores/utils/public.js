@@ -39,7 +39,6 @@ const loadTemplate = async () => {
                             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div class="navbar-nav ms-auto">
                                     <a class="nav-link" href="inicio.html"><i class="bi bi-house-door"></i> Inicio</a>
-                                    <a class="nav-link" href="index.html"><i class="bi bi-shop"></i> Catálogo</a>
                                     <a class="nav-link" href="nosotros.html"><i class="bi bi-people-fill"></i>Nosotros</a>
                                     <a class="nav-link" href="carrito.html"><i class="bi bi-cart"></i> Carrito</a>
                                     <a class="nav-link" href="#" onclick="logOut()"><i class="bi bi-box-arrow-left"></i> Cerrar sesión</a>
@@ -74,6 +73,35 @@ const loadTemplate = async () => {
             </header>
         `);
     }
+
+    MAIN.insertAdjacentHTML('afterend', `
+    <footer>
+    <footer>
+            <div class="footer-content">
+                  <center>
+                        <h3>Lacteos Doña Queso</h3>
+                  </center>
+                  <p>Este año empezamos con la distrubucion de los mejores lacteos en toda ciudad ya que son productos
+                        100%
+                        natural</p>
+                  <ul class="socials">
+                        <li><a href="https://www.facebook.com/profile.php?id=61557180795985&mibextid=ZbWKwL"><i
+                                          class="bi bi-facebook"></i></a></li>
+                        <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                        <li><a href="https://chat.whatsapp.com/Ja1XaBabc690ruCBIbzXcf"><i class="bi bi-whatsapp"></i></a></li>
+                        <li><a href="https://www.instagram.com/papiriki22?igsh=eDJieml6MTIyeGNj"><i class="bi bi-instagram"></i></a></li>
+                        <li><a href="https://www.tiktok.com/@teclas568?_t=8krtubotSgX&_r=1"><i class="bi bi-tiktok"></i></a></li>
+                  </ul>
+            </div>
+            <div class="footer-bottom">
+                  <p style="font-family: Arial;">copyright &copy;2024 Lacteos Doña Queso. designed by
+                        <span>Quesos</span>
+                  </p>
+            </div>
+      </footer>
+`);
+ }
     // Se agrega el pie de la página web después del contenido principal.
    
-}
+
+   

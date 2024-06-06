@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Llamada a la función para mostrar el encabezado y pie del documento.
     loadTemplate();
     // Se establece el título del contenido principal.
-    MAIN_TITLE.textContent = 'Productos por catalogo';
+    MAIN_TITLE.textContent = 'Catalogo de Productos';
     // Petición para obtener las categorías disponibles.
     const DATA = await fetchData(CATEGORIA_API, 'readAll');
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <div class="card-body text-center">
                             <h5 class="card-title">${row.nombre_catalogo}</h5>
                             <p class="card-text">${row.precio}</p>
-                            <a href="${url}" class="btn btn-primary">Ver productos</a>
+                            <a href="${url}" class="btn btn-success">Agregar al<i class="bi bi-cart"></i></a>
                         </div>
                     </div>
                 </div>

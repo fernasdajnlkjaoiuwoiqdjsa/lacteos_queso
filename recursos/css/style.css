@@ -303,7 +303,7 @@ a{
     filter: grayscale(0);
   }
   .xdd{
-    margin-left: 40%;
+    margin-left: 38%;
     display: flex;
   
   }
@@ -313,6 +313,14 @@ a{
   .quesosss{
     display: flex;
     margin-left: 42%;
+  }
+  .quessillo{
+    display: flex;
+    margin-left: 42%;
+   
+  }
+  .cars{
+    margin-left: 7%;
   }
   .car{
     margin-left: 3%;
@@ -558,7 +566,7 @@ a{
     margin-bottom: 3%;
   }
   .nosotri{
-    background-image: url(../recursos/img/mamacita.png.jpeg);
+    background-image: url(../../recursos/img/mamacita.png.jpeg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -624,7 +632,7 @@ a{
   }
  
   .tomjerry{
-    background-image: url(../recursos/img/mamacita.png.jpeg);
+    background-image: url(../../recursos/img/mamacita.png.jpeg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
