@@ -33,6 +33,9 @@ class ComentarioHandler
         return Database::getRows($sql, $params);
     }
 
+     /*
+     *  metodo para q se pueda agregar un nuevo comentario).
+     */
     public function createRow()
     {
         $sql = 'INSERT INTO comentarios(nombre_cliente, descripcion_pro, estado_comentario, fecha_comentario, id_detale)
@@ -40,7 +43,9 @@ class ComentarioHandler
         $params = array($this->nombredecli, $this->descripcion, $this->estado,$this->fechacomentario, $this->id);
         return Database::executeRow($sql, $params);
     }
-
+     /*
+     *  metodo para leer los datos).
+     */
     public function readAll()
     {
         $sql = 'SELECT id_valoracion, nombre_cliente, descripcion_pro, estado_comentario, fecha_comentario
@@ -66,7 +71,9 @@ class ComentarioHandler
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
-
+     /*
+     *  metodo para actualizar los datos).
+     */
     public function updateRow()
     {
         $sql = 'UPDATE comentarios
@@ -75,7 +82,9 @@ class ComentarioHandler
         $params = array($this->nombredecli, $this->descripcion, $this->estado, $this->fechacomentario ,$_SESSION['id_detale'] );
         return Database::executeRow($sql, $params);
     }
-
+     /*
+     *  metodo para ejecutar la accion de elminiar).
+     */
     public function deleteRow()
     {
         $sql = 'DELETE FROM comentarios

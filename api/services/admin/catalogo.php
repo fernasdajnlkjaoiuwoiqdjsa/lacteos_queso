@@ -69,6 +69,7 @@ if (isset($_GET['action'])) {
                 $_POST = Validator::validateForm($_POST);
                 if (
                     !$CatalogoProducto->setNombreCatlogo($_POST['nombreCatalogo']) or
+                 
                     !$CatalogoProducto->setPrecio($_POST['precioCatalogo']) or
                     !$CatalogoProducto->setCorreo($_POST['correoCatalogo']) or
                     !$CatalogoProducto->setTelfonopro($_POST['telefonoCatalogo']) or

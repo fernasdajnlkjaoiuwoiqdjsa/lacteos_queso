@@ -1,5 +1,5 @@
 <?php
-require_once ("../../helpers/dbconect.php");
+require_once("../../helpers/dbconect.php");
 $commentId = isset($_POST['comment_id']) ? $_POST['comment_id'] : "";
 $comment = isset($_POST['comment']) ? $_POST['comment'] : "";
 $commentSenderName = isset($_POST['name']) ? $_POST['name'] : "";
@@ -11,19 +11,18 @@ $sql_stmt = $conn->prepare($query);
 
 $param_type = "dsss";
 $param_value_array = array(
-    $commentId,
-    $comment,
-    $commentSenderName,
-    $date
+      $commentId,
+      $comment,
+      $commentSenderName,
+      $date
 );
-$param_value_reference[] = & $param_type;
-for ($i = 0; $i < count($param_value_array); $i ++) {
-    $param_value_reference[] = & $param_value_array[$i];
+$param_value_reference[] = &$param_type;
+for ($i = 0; $i < count($param_value_array); $i++) {
+      $param_value_reference[] = &$param_value_array[$i];
 }
 call_user_func_array(array(
-    $sql_stmt,
-    'bind_param'
+      $sql_stmt,
+      'bind_param'
 ), $param_value_reference);
 
 $sql_stmt->execute();
-?>

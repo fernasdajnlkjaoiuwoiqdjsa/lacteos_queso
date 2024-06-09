@@ -80,7 +80,7 @@ const fillTable = async (form = null) => {
             // Se crean y concatenan las filas de la tabla con los datos de cada registro.
             TABLE_BODY.innerHTML += `
                 <tr>
-                    <td>${row.id_prove}</td>
+                    <td>${row.id_proveedor}</td>
                     <td>${row.nombre_pro}</td>
                     <td>${row.apellido_pro}</td>
                     <td>${row.empresa}</td>
@@ -88,10 +88,10 @@ const fillTable = async (form = null) => {
                     <td>${row.numero_pro}</td>
                     <td>${row.fecha_registro}</td>
                     <td>
-                        <button type="button" class="btn btn-info" onclick="openUpdate(${row.id_prove})">
+                        <button type="button" class="btn btn-info" onclick="openUpdate(${row.id_proveedor})">
                             <i class="bi bi-pencil-fill"></i>
                         </button>
-                        <button type="button" class="btn btn-danger" onclick="openDelete(${row.id_prove})">
+                        <button type="button" class="btn btn-danger" onclick="openDelete(${row.id_proveedor})">
                             <i class="bi bi-trash-fill"></i>
                         </button>
                     </td>
@@ -141,14 +141,14 @@ const openUpdate = async (id) => {
         EXISTENCIAS_PRODUCTO.enable = true;
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
-        ID_PRODUCTO.value = ROW.id_prove;
+        ID_PRODUCTO.value = ROW.id_proveedor;
         NOMBRE_PRODUCTO.value = ROW.nombre_pro;
         CORREO_PROVEEDOR.value = ROW.correo_pro;
         PRECIO_PRODUCTO.value = ROW.apellido_pro;
         EXISTENCIAS_PRODUCTO.value = ROW.empresa;
         TELEFONO_CATALOGO.value = ROW.numero_pro;
         FECHA_INGRESO.value = ROW.fecha_registro;
-        fillSelect(CATEGORIA_API, 'readAll', 'Proveedor', ROW.id_prove);
+        fillSelect(CATEGORIA_API, 'readAll', 'Proveedor', ROW.id_proveedor);
     } else {
         sweetAlert(2, DATA.error, false);
     }

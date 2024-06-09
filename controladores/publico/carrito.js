@@ -62,14 +62,14 @@ async function readDetail() {
             TABLE_BODY.innerHTML += `
                 <tr>
                     <td>${row.nombre_producto}</td>
-                    <td>${row.precio_producto}</td>
-                    <td>${row.cantidad_producto}</td>
+                    <td>${row.precio_catpro}</td>
+                    <td>${row.cantidad_catpro}</td>
                     <td>${subtotal.toFixed(2)}</td>
                     <td>
-                        <button type="button" onclick="openUpdate(${row.id_detalle}, ${row.cantidad_producto})" class="btn btn-info">
+                        <button type="button" onclick="openUpdate(${row.id_detale}, ${row.cantidad})" class="btn btn-info">
                             <i class="bi bi-plus-slash-minus"></i>
                         </button>
-                        <button type="button" onclick="openDelete(${row.id_detalle})" class="btn btn-danger">
+                        <button type="button" onclick="openDelete(${row.id_detale})" class="btn btn-danger">
                             <i class="bi bi-cart-dash"></i>
                         </button>
                     </td>
@@ -92,7 +92,7 @@ function openUpdate(id, quantity) {
     // Se abre la caja de diálogo que contiene el formulario.
     ITEM_MODAL.show();
     // Se inicializan los campos del formulario con los datos del registro seleccionado.
-    document.getElementById('idDetalle').value = id;
+    document.getElementById('idDetale').value = id;
     document.getElementById('cantidadProducto').value = quantity;
 }
 
@@ -129,7 +129,7 @@ async function openDelete(id) {
     if (RESPONSE) {
         // Se define un objeto con los datos del producto seleccionado.
         const FORM = new FormData();
-        FORM.append('idDetalle', id);
+        FORM.append('idDetale', id);
         // Petición para eliminar un producto del carrito de compras.
         const DATA = await fetchData(PEDIDO_API, 'deleteDetail', FORM);
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.

@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Se colocan los datos en la página web de acuerdo con el producto seleccionado previamente.
        
         document.getElementById('descripcionProducto').textContent = DATA.dataset.nombre_catalogo;
-        document.getElementById('precioProducto').textContent = DATA.dataset.precio;
+        document.getElementById('precioProducto').textContent = DATA.dataset.precio_producto;
         document.getElementById('idProducto').value = DATA.dataset.id_catalogo;
     } else {
         // Se presenta un mensaje de error cuando no existen datos para mostrar.

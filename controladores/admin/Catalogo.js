@@ -84,7 +84,7 @@ const fillTable = async (form = null) => {
                     <td>${row.id_catalogo}</td>
                     <td>${row.nombre_catalogo}</td>
                     <td>${row.cantidad}</td>
-                    <td>${row.precio}</td>
+                    <td>${row.precio_producto}</td>
                     <td>${row.correo_proveedor}</td>
                     <td>${row.telefono_proveedor}</td>
                     <td>${row.lugar}</td>
@@ -118,7 +118,7 @@ const openCreate = () => {
     MODAL_TITLE.textContent = 'Crear Catalogo';
     // Se prepara el formulario.
     SAVE_FORM.reset();
-    EXISTENCIAS_PRODUCTO.disabled = false;
+    
    
 }
 
@@ -146,7 +146,7 @@ const openUpdate = async (id) => {
         ID_PRODUCTO.value = ROW.id_catalogo;
         NOMBRE_PRODUCTO.value = ROW.nombre_catalogo;
         CORREO_PROVEEDOR.value = ROW.correo_proveedor;
-        PRECIO_PRODUCTO.value = ROW.precio;
+        PRECIO_PRODUCTO.value = ROW.precio_producto;
         EXISTENCIAS_PRODUCTO.value = ROW.cantidad;
         TELEFONO_CATALOGO.value = ROW.telefono_proveedor;
         LUGAR_CATALOGO.value = ROW.lugar;
