@@ -24,7 +24,7 @@ class PedidoData extends PedidoHandler
                   return false;
             }
       }
-
+      //Metodo para asignar el id del detalle
       public function setIdDetalle($value)
       {
             if (Validator::validateNaturalNumber($value)) {
@@ -35,7 +35,7 @@ class PedidoData extends PedidoHandler
                   return false;
             }
       }
-
+       //Metodo para validar el id del cliente
       public function setCliente($value)
       {
             if (Validator::validateNaturalNumber($value)) {

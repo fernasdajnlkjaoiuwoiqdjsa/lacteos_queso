@@ -27,7 +27,7 @@ class ProveedorData extends ProveedorHandler
                   return false;
             }
       }
-
+       //Metodo para validar el campo donde ira el nombre del proveedor
       public function setNombrepro($value, $min = 2, $max = 50)
       {
             if (!Validator::validateAlphanumeric($value)) {
@@ -41,7 +41,7 @@ class ProveedorData extends ProveedorHandler
                   return false;
             }
       }
-
+       //Metodo para validar el campo donde ira el apellido del proveedor
       public function setApellidopro($value, $min = 2, $max = 250)
       {
             if (!$value) {
@@ -58,7 +58,7 @@ class ProveedorData extends ProveedorHandler
             }
       }
 
-
+       //Metodo para validar el campo donde ira la empresa del proveedor
       public function setEmpresa($value, $min = 2, $max = 250)
       {
             if (!$value) {
@@ -74,7 +74,7 @@ class ProveedorData extends ProveedorHandler
                   return false;
             }
       }
-
+       //Metodo para validar el campo donde ira el correo del provedor
       public function setCorreopro($value, $min = 8, $max = 100)
       {
             if (!Validator::validateEmail($value)) {
@@ -91,7 +91,7 @@ class ProveedorData extends ProveedorHandler
                   return true;
             }
       }
-
+       //Metodo para validar el campo del telefono sin caracteres especiales 
       public function setTelfono($value)
       {
             if (Validator::validatePhone($value)) {
@@ -103,7 +103,7 @@ class ProveedorData extends ProveedorHandler
             }
       }
 
-
+       //Metodo para validar la fecha de tipo date
       public function setfecharegistropro($value)
       {
             if (Validator::validateDate($value)) {

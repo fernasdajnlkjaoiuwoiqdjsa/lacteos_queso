@@ -35,7 +35,8 @@ class ProveedorHandler
             return false;
         }
     }
-
+    
+    //metodo para chequear los datos de la base
     public function checkStatus()
     {
         if ($this->fecharegistro) {
@@ -54,7 +55,7 @@ class ProveedorHandler
         $params = array( $this->id);
         return Database::executeRow($sql, $params);
     }
-
+     //metodo para ediatar el perfil los perfiles
     public function editProfile()
     {
         $sql = 'UPDATE proveedores
@@ -63,7 +64,7 @@ class ProveedorHandler
         $params = array($this->nombrepro, $this->apellidopro, $this->empresa, $this->correopro, $this->numeropro,  $this->fecharegistro, $this->id);
         return Database::executeRow($sql, $params);
     }
-
+     //metodo para chequear los datos de la base
     public function changeStatus()
     {
         $sql = 'UPDATE proveedores
@@ -76,6 +77,8 @@ class ProveedorHandler
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
     */
+
+     //metodo para hacer la accion de busqueds
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
@@ -86,7 +89,7 @@ class ProveedorHandler
         $params = array($value, $value, $value);
         return Database::getRows($sql, $params);
     }
-
+     //metodo para agregar y crear nuevos proveedor
     public function createRow()
     {
         $sql = 'INSERT INTO proveedores(nombre_pro, apellido_pro, empresa, correo_pro, numero_pro, fecha_registro)
@@ -94,7 +97,7 @@ class ProveedorHandler
         $params = array($this->nombrepro, $this->apellidopro, $this->empresa, $this->correopro, $this->numeropro, $this->fecharegistro, $this->id );
         return Database::executeRow($sql, $params);
     }
-
+     //metodo para leer los datos de las tablas
     public function readAll()
     {
         $sql = 'SELECT id_proveedor, nombre_pro, apellido_pro, empresa, correo_pro,numero_pro , fecha_registro
@@ -102,7 +105,7 @@ class ProveedorHandler
                 ORDER BY nombre_pro';
         return Database::getRows($sql);
     }
-
+     //metodo para leer los datos
     public function readOne()
     {
         $sql = 'SELECT id_proveedor, nombre_pro, apellido_pro, empresa, correo_pro,numero_pro , fecha_registro
@@ -110,7 +113,7 @@ class ProveedorHandler
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
-
+     //metodo para actualizar y editar los datos del proveedor 
     public function updateRow()
     {
         $sql = 'UPDATE proveedores
@@ -119,7 +122,7 @@ class ProveedorHandler
         $params = array($this->nombrepro, $this->apellidopro, $this->empresa, $this->correopro, $this->numeropro, $this->fecharegistro, $this->id);
         return Database::executeRow($sql, $params);
     }
-
+     //metodo para eliminar  los datos del proveedor 
     public function deleteRow()
     {
         $sql = 'DELETE FROM proveedores
@@ -127,7 +130,7 @@ class ProveedorHandler
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
-
+     //metodo para verificar que los datos no se dupliquen
     public function checkDuplicate($value)
     {
         $sql = 'SELECT id_proveedor

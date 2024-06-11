@@ -27,7 +27,7 @@ class CatalogoData extends CatalogoHandler
                   return false;
             }
       }
-
+      //Metodo para validar el campo donde ira el nombre
       public function setNombreCatlogo($value, $min = 2, $max = 50)
       {
             if (!Validator::validateAlphanumeric($value)) {
@@ -41,7 +41,7 @@ class CatalogoData extends CatalogoHandler
                   return false;
             }
       }
-
+      //Metodo para validar de forma numerica en cantidad
       public function setCantidad($value, $min = 2, $max = 250)
       {
             if (!$value) {
@@ -58,7 +58,7 @@ class CatalogoData extends CatalogoHandler
             }
       }
 
-
+      //Metodo para validar de forma numerica en precio
       public function setPrecio($value)
       {
             if (Validator::validateMoney($value)) {
@@ -69,7 +69,7 @@ class CatalogoData extends CatalogoHandler
                   return false;
             }
       }
-
+      //Metodo para validar el campo de correo
       public function setCorreo($value, $min = 8, $max = 100)
       {
             if (!Validator::validateEmail($value)) {
@@ -86,7 +86,7 @@ class CatalogoData extends CatalogoHandler
                   return true;
             }
       }
-
+      //Metodo para validar el campo del telefono
       public function setTelfonopro($value)
       {
             if (Validator::validatePhone($value)) {
@@ -99,7 +99,7 @@ class CatalogoData extends CatalogoHandler
       }
 
 
-
+      //Metodo para validar el campo donde ira el lugra de negocio
       public function setLugar($value, $min = 2, $max = 250)
       {
             if (!$value) {
@@ -115,7 +115,7 @@ class CatalogoData extends CatalogoHandler
                   return false;
             }
       }
-
+      //Metodo para validar de tipo date la fecha
       public function setfecharegistro($value)
       {
             if (Validator::validateDate($value)) {

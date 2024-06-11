@@ -40,7 +40,7 @@ class ClienteHandler
                   return false;
             }
       }
-
+        // accion para chequear los dtaos de la bd.
       public function checkStatus()
       {
             if ($this->estadocliente) {
@@ -51,7 +51,7 @@ class ClienteHandler
                   return false;
             }
       }
-
+        // accion ejecutar la accion de la contraseña.
       public function changePassword()
       {
             $sql = 'UPDATE clientes
@@ -91,7 +91,7 @@ class ClienteHandler
             $params = array($value, $value, $value);
             return Database::getRows($sql, $params);
       }
-
+        // accion para quese pueda registrar un nuevo cliente poniendo los parrametros de la base .
       public function createRow()
       {
             $sql = 'INSERT INTO clientes(nombre_cliente, edad_cliente, direccion, cuenta_cliente, telefono_cliente, contra, fecha_registro )
@@ -99,7 +99,7 @@ class ClienteHandler
             $params = array($this->nombrecli, $this->edad, $this->direccion, $this->cuenta, $this->telefonocli, $this->contra, $this->fechaingreso);
             return Database::executeRow($sql, $params);
       }
-
+        // accion para leer los datos de los clientes .
       public function readAll()
       {
             $sql = 'SELECT id_cliente, nombre_cliente, edad_cliente, direccion, cuenta_cliente, telefono_cliente,contra,fecha_registro
@@ -107,7 +107,7 @@ class ClienteHandler
                 ORDER BY nombre_cliente';
             return Database::getRows($sql);
       }
-
+        // accion para leer los datos.
       public function readOne()
       {
             $sql = 'SELECT id_cliente, nombre_cliente, edad_cliente, direccion, cuenta_cliente, telefono_cliente,contra,fecha_registro
@@ -116,7 +116,7 @@ class ClienteHandler
             $params = array($this->id);
             return Database::getRow($sql, $params);
       }
-
+        // accion para actualizar un nuevo cliente .
       public function updateRow()
       {
             $sql = 'UPDATE clientes
@@ -125,7 +125,7 @@ class ClienteHandler
             $params = array($this->nombrecli, $this->edad, $this->direccion, $this->cuenta, $this->telefonocli, $this->contra, $this->fechaingreso);
             return Database::executeRow($sql, $params);
       }
-
+        // accion para eliminar o dar de baja al cliente.
       public function deleteRow()
       {
             $sql = 'DELETE FROM clientes
@@ -133,7 +133,7 @@ class ClienteHandler
             $params = array($this->id);
             return Database::executeRow($sql, $params);
       }
-
+        // accion para verificar que los datos no se dupliquen.
       public function checkDuplicate($value)
       {
             $sql = 'SELECT id_cliente

@@ -36,7 +36,7 @@ class CatalogoHandler
             $params = array($value, $value);
             return Database::getRows($sql, $params);
       }
-      // accion para crear un nuevo catalogo .
+      // accion para crear un nuevo catalogo poniendo los parrametros de la base .
       public function createRow()
       {
             $sql = 'INSERT INTO catalogoproducto(nombre_catalogo, cantidad,precio_producto, correo_proveedor, telefono_proveedor, lugar, fecha_ingreso,id_admin)
@@ -44,7 +44,7 @@ class CatalogoHandler
             $params = array($this->nombre, $this->cantidad, $this->precio, $this->correopro, $this->telefonopro, $this->lugar, $this->fechaingreso, $_SESSION['id_admin']);
             return Database::executeRow($sql, $params);
       }
-      
+        // accion para leer los datos de la base .
       public function readAll()
       {
             $sql = 'SELECT id_catalogo, nombre_catalogo, cantidad, precio_producto, correo_proveedor, telefono_proveedor, lugar, fecha_ingreso
@@ -52,7 +52,7 @@ class CatalogoHandler
                 ORDER BY nombre_catalogo';
             return Database::getRows($sql);
       }
-
+        // accion para leer y poder asignar nuevos valores .
       public function readOne()
       {
             $sql = 'SELECT id_catalogo, nombre_catalogo, cantidad, precio_producto,correo_proveedor, telefono_proveedor,lugar,fecha_ingreso
@@ -70,7 +70,7 @@ class CatalogoHandler
             $params = array($this->id);
             return Database::getRow($sql, $params);
       }
-
+        // accion para actulaizra un nuevo catalogo poniendo los datos ya asignados.
       public function updateRow()
       {
             $sql = 'UPDATE catalogoproducto
@@ -79,7 +79,7 @@ class CatalogoHandler
             $params = array($this->nombre, $this->precio, $this->cantidad, $this->correopro, $this->telefonopro, $this->lugar, $this->fechaingreso, $this->id);
             return Database::executeRow($sql, $params);
       }
-
+        // accion para elminra un catalogo poniendo los parrametros de la base .
       public function deleteRow()
       {
             $sql = 'DELETE FROM catalogoproducto
@@ -87,6 +87,7 @@ class CatalogoHandler
             $params = array($this->id);
             return Database::executeRow($sql, $params);
       }
+        // accion para verificar que los datos no se dupliquen .
       public function checkDuplicate($value)
       {
             $sql = 'SELECT id_catalogo
@@ -95,6 +96,7 @@ class CatalogoHandler
             $params = array($value, $value);
             return Database::getRow($sql, $params);
       }
+        // accion para solictar la categoria para agregar al carrito .
       public function readProductosCatalogo()
       {
           $sql = 'SELECT id_catalogo, nombre_catalogo, cantidad, precio_producto, correo_proveedor, telefono_proveedor, lugar, fecha_ingreso

@@ -66,7 +66,7 @@ async function readDetail() {
                     <td>${row.cantidad_catpro}</td>
                     <td>${subtotal.toFixed(2)}</td>
                     <td>
-                        <button type="button" onclick="openUpdate(${row.id_detale}, ${row.cantidad})" class="btn btn-info">
+                        <button type="button" onclick="openUpdate(${row.id_detale}, ${row.cantidad_catpro})" class="btn btn-info">
                             <i class="bi bi-plus-slash-minus"></i>
                         </button>
                         <button type="button" onclick="openDelete(${row.id_detale})" class="btn btn-danger">

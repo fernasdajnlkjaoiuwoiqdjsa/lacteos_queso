@@ -24,7 +24,7 @@ class ClienteData extends ClienteHandler
             return false;
         }
     }
-
+     //Metodo para validar el campo donde ira el nombre del cliente
     public function setNombre($value, $min = 2, $max = 50)
     {
         if (!Validator::validateAlphabetic($value)) {
@@ -38,7 +38,7 @@ class ClienteData extends ClienteHandler
             return false;
         }
     }
-
+     //Metodo para validar el campo donde ira la edad del cliente
     public function setEdad($value, $min = 2, $max = 50)
     {
         if (!Validator::validateString($value)) {
@@ -52,7 +52,7 @@ class ClienteData extends ClienteHandler
             return false;
         }
     }
-
+     //Metodo para validar el campo donde ira la direccion del cliente
 	public function setDireccionn($value, $min = 2, $max = 50)
     {
         if (!Validator::validateAlphabetic($value)) {
@@ -66,7 +66,7 @@ class ClienteData extends ClienteHandler
             return false;
         }
     }
-
+     //Metodo para validar el campo del correodel cliente
     public function setCorreo($value, $min = 8, $max = 100)
     {
         if (!Validator::validateEmail($value)) {
@@ -83,7 +83,7 @@ class ClienteData extends ClienteHandler
             return true;
         }
     }
-
+     //Metodo para validar el campo donde ira el telefono del cliente
     public function setTelefonocli($value)
     {
         if (Validator::validatePhone($value)) {
@@ -94,7 +94,7 @@ class ClienteData extends ClienteHandler
             return false;
         }
     }
-
+     //Metodo para validar el campo donde ira la relacion del clinte con el negocio
 	public function setRelacion($value)
     {
         if (Validator::validatePassword($value)) {
@@ -105,7 +105,7 @@ class ClienteData extends ClienteHandler
             return false;
         }
     }
-
+     //Metodo para validar si el cliente esta activo o inactivo
     public function setEstado($value)
     {
         if (Validator::validateBoolean($value)) {
@@ -116,7 +116,7 @@ class ClienteData extends ClienteHandler
             return false;
         }
     }
-
+     //Metodo para validar la fecha 
     public function setfecharegistro($value)
     {
         if (Validator::validateDate($value)) {
