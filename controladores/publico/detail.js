@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Llamada a la función para mostrar el encabezado y pie del documento.
     loadTemplate();
     // Se establece el título del contenido principal.
-    MAIN_TITLE.textContent = 'Detalles del catalogo';
+    MAIN_TITLE.textContent = 'Detalles del producto';
     // Constante tipo objeto con los datos del producto seleccionado.
     const FORM = new FormData();
-    FORM.append('id_catalogo', PARAMS.get('id'));
+    FORM.append('idCatalogo', PARAMS.get('id'));
     // Petición para solicitar los datos del producto seleccionado.
     const DATA = await fetchData(PRODUCTO_API, 'readOne', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.

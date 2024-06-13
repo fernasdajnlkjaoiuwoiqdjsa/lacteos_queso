@@ -22,13 +22,20 @@
 </head>
 
 <body>
+
+    
       <!-- Contenido principal del documento -->
       <main>
+         
             <!-- Título del contenido principal -->
             <h4 id="mainTitle"></h4>
             <!-- Formulario para crear cuenta -->
+            <div class="formvaca"> <img src="../../recursos/img/vacaputa.png" alt="" class="vacaform">
+            </div>
+            <br>
             <form class="row g-3" id="signupForm">
                   <!-- Campo oculto para asignar el token del reCAPTCHA -->
+                   
                   <input type="text" class="d-none" id="gRecaptchaResponse" name="gRecaptchaResponse">
                   <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">
                         <label for="nombreCliente" class="form-label">Nombre</label>
@@ -66,10 +73,10 @@
                         <label class="form-check-label" for="condicion">Acepto términos y condiciones</label>
                   </div>
                   <div class="text-center">
-                        <button type="reset" class="btn btn-secondary"><i class="bi bi-x-square-fill"></i>
+                        <button type="reset" class="btn btn-danger"><i class="bi bi-x-square-fill"></i>
                               Cancelar</button>
-                        <button type="submit" class="btn btn-primary"><i class="bi bi-person-fill"></i>
-                              Registrar</button>
+                        <button type="submit" class="btn btn-success"><i class="bi bi-person-fill"></i>
+                              Registrarse</button>
                   </div>
             </form>
             <!-- Inclusión de la librería de mascaras. Para más información https://github.com/text-mask/text-mask -->

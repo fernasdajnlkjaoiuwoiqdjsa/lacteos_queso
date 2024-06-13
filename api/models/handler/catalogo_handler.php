@@ -31,7 +31,7 @@ class CatalogoHandler
             $value = '%' . Validator::getSearchValue() . '%';
             $sql = 'SELECT id_catalogo, nombre_catalogo, cantidad,precio_producto,correo_proveedor,telefono_proveedor,lugar,fecha_ingreso
                 FROM catalogoproducto
-                WHERE nombre_catalogo LIKE ? OR precio LIKE ?
+                WHERE nombre_catalogo LIKE ? OR precio_producto LIKE ?
                 ORDER BY nombre_catalogo';
             $params = array($value, $value);
             return Database::getRows($sql, $params);
@@ -96,7 +96,7 @@ class CatalogoHandler
             $params = array($value, $value);
             return Database::getRow($sql, $params);
       }
-        // accion para solictar la categoria para agregar al carrito .
+        // accion para solictar el catalogo para agregar al carrito .
       public function readProductosCatalogo()
       {
           $sql = 'SELECT id_catalogo, nombre_catalogo, cantidad, precio_producto, correo_proveedor, telefono_proveedor, lugar, fecha_ingreso

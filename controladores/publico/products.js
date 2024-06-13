@@ -2,7 +2,7 @@
 const PRODUCTO_API = 'services/public/catalogo.php';
 // Constante tipo objeto para obtener los parámetros disponibles en la URL.
 const PARAMS = new URLSearchParams(location.search);
-const PRODUCTOS = document.getElementById('catalogos');
+const PRODUCTOS = document.getElementById('productos');
 
 // Método manejador de eventos para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadTemplate();
     // Se define un objeto con los datos de la categoría seleccionada.
     const FORM = new FormData();
-    FORM.append('id_catalogo', PARAMS.get('id'));
+    FORM.append('idCatalogo', PARAMS.get('id'));
     // Petición para solicitar los productos de la categoría seleccionada.
     const DATA = await fetchData(PRODUCTO_API, 'readProductosCatalogo', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.

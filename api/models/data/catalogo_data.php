@@ -27,6 +27,16 @@ class CatalogoData extends CatalogoHandler
                   return false;
             }
       }
+      public function setCatalogo($value)
+      {
+          if (Validator::validateNaturalNumber($value)) {
+              $this->catalogo = $value;
+              return true;
+          } else {
+              $this->data_error = 'El identificador del catalogo es incorrecto';
+              return false;
+          }
+      }
       //Metodo para validar el campo donde ira el nombre
       public function setNombreCatlogo($value, $min = 2, $max = 50)
       {

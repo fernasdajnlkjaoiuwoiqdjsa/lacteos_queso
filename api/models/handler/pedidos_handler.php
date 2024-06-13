@@ -15,6 +15,7 @@ class PedidoHandler
       protected $cantidad = null;
       protected $estado = null;
       protected $fecharegistro = null;
+      protected $catalogo = null;
 
 
       /*
@@ -51,8 +52,8 @@ class PedidoHandler
                   return true;
             } else {
                   $sql = 'INSERT INTO pedidos(estado_pedido, id_cliente)
-                    VALUES((SELECT estado_pedido FROM clientes WHERE id_cliente = ?), ?)';
-                  $params = array($_SESSION['id_cliente'], $_SESSION['id_cliente']);
+                    VALUES(?, ?)';
+                  $params = array('Pendiente', $_SESSION['id_cliente']);
                   // Se obtiene el ultimo valor insertado de la llave primaria en la tabla pedido.
                   if ($_SESSION['idPedido'] = Database::getLastRow($sql, $params)) {
                         return true;
@@ -66,19 +67,18 @@ class PedidoHandler
       public function createDetail()
       {
             // Se realiza una subconsulta para obtener el precio del producto.
-            $sql = 'INSERT INTO detallepedido(id_pedido, cantidad_catpro, precio_catpro,fecha_registro)
-                VALUES(?, (SELECT precio_catpro FROM pedidos WHERE id_pedido = ?), ?, ?)';
-            $params = array($this->cliente, $this->cliente, $this->cantidad, $_SESSION['id_pedido']);
+            $sql = 'INSERT INTO detallepedido(id_pedido, cantidad_catpro, precio_catpro, id_catalogo)
+                VALUES(?, ?, (SELECT precio_producto FROM catalogoproducto WHERE id_catalogo = ?), ?)';
+            $params = array($_SESSION['idPedido'], $this->cantidad, $this->catalogo, $this->catalogo);
             return Database::executeRow($sql, $params);
       }
 
       // Método para obtener los productos que se encuentran en el carrito de compras.
       public function readDetail()
       {
-            $sql = 'SELECT id_detalle,cantidad_catpro , detallepedido.precio_catpro, detallepedido.cantidad_catpro
+            $sql = 'SELECT id_detalle,nombre_catalogo, detallepedido.precio_catpro, detallepedido.cantidad_catpro
                 FROM detallepedido
-                INNER JOIN pedidos USING(id_pedido)
-                INNER JOIN detallepedido USING(id_detalle)
+                INNER JOIN catalogoproducto USING(id_catalogo)
                 WHERE id_pedido = ?';
             $params = array($_SESSION['idPedido']);
             return Database::getRows($sql, $params);
