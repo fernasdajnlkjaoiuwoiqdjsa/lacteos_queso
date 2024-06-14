@@ -303,7 +303,7 @@ a{
     filter: grayscale(0);
   }
   .xdd{
-    margin-left: 38%;
+    margin-left: 33%;
     display: flex;
   
   }
@@ -312,21 +312,32 @@ a{
   }
   .quesosss{
     display: flex;
-    margin-left: 42%;
+    margin-left: 39%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   .quessillo{
     display: flex;
     margin-left: 42%;
-   
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   .cars{
-    margin-left: 7%;
+    margin-left: 12%;
+    font-size: 24px;
   }
   .car{
     margin-left: 3%;
   }
   .carr{
     margin-right: 147px;
+    font-size: 24px;
+  }
+  .carrr{
+    font-size: 24px;
+    margin-left: -60px;
+  }
+  .carss{
+    font-size: 24px;
+    margin-left: 23%;
   }
   .hi{
     margin-bottom: 4%;
@@ -405,7 +416,7 @@ a{
     background: #fff;
     width: 500px;
     margin-right: 30px;
-    margin-left: 200px;
+    margin-left: 245px;
     transition: all 300ms;
   }.amitoo:hover{
     transform: scale(1.20);
@@ -1016,6 +1027,21 @@ a{
     width: 170px;
     height: 170px;
     margin-left: 560px;
+  }
+  .empresita{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .tottot{
+    font-size: 25px;
+  }
+  .contodo{
+    font-family:'Times New Roman', Times, serif;
+    background-color: #9BFAB0;
+    width: 1884px;
+    height: 55px;
+  }
+  .productonu{
+    font-size: 37px;
   }
 
 
