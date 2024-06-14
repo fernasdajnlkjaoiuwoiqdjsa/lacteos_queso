@@ -59,7 +59,7 @@ class ClienteHandler
             $params = array($this->id);
             return Database::executeRow($sql, $params);
       }
-
+      // accion ejecutar la accion de cambiar el nombre y contraseña del cliente
       public function editProfile()
       {
             $sql = 'UPDATE clientes
@@ -68,7 +68,7 @@ class ClienteHandler
             $params = array($this->nombrecli, $this->edad, $this->direccion, $this->cuenta, $this->telefonocli, $this->contra, $this->fechaingreso, $this->estadocliente);
             return Database::executeRow($sql, $params);
       }
-
+      // accion ejecutar la accion dentro de la sesion.
       public function changeStatus()
       {
             $sql = 'UPDATE clientes

@@ -25,6 +25,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay coincidencias';
                 }
                 break;
+                // Se compara la acción a realizar cuando un administrador se ha creado.
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
@@ -42,6 +43,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al crear el administrador';
                 }
                 break;
+                // Se compara la acción a realizar cuando se lee los datos de un administrador .
             case 'readAll':
                 if ($result['dataset'] = $administrador->readAll()) {
                     $result['status'] = 1;
@@ -50,6 +52,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen administradores registrados';
                 }
                 break;
+                // Se compara la acción a verificar que se lean los datos.
             case 'readOne':
                 if (!$administrador->setId($_POST['idAdministrador'])) {
                     $result['error'] = 'Administrador incorrecto';
@@ -59,6 +62,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Administrador inexistente';
                 }
                 break;
+                // Se compara la acción a realizar la actualizacion de  los datos.
             case 'updateRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
@@ -74,6 +78,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al modificar el administrador';
                 }
                 break;
+                // SAccion para elminar los datos del admin.
             case 'deleteRow':
                 if ($_POST['idAdministrador'] == $_SESSION['idAdministrador']) {
                     $result['error'] = 'No se puede eliminar a sí mismo';
@@ -86,6 +91,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al eliminar el administrador';
                 }
                 break;
+                // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
             case 'getUser':
                 if (isset($_SESSION['usuario_admin'])) {
                     $result['status'] = 1;
@@ -93,6 +99,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Alias de administrador indefinido';
                 }
                 break;
+                // Se compara la acción a realizar cuando un administrador ha registrado
             case 'logOut':
                 if (session_destroy()) {
                     $result['status'] = 1;
@@ -101,6 +108,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al cerrar la sesión';
                 }
                 break;
+                // Se hace la accion de leer los datos de un administrador cuandoo cambie su contraseña y uusario.
             case 'readProfile':
                 if ($result['dataset'] = $administrador->readProfile()) {
                     $result['status'] = 1;
@@ -108,6 +116,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al leer el perfil';
                 }
                 break;
+                // Se compara la acción a realizar cuando un administrador cambie su contraseña y nombre de usuario.
             case 'editProfile':
                 $_POST = Validator::validateForm($_POST);
                 if (
@@ -124,6 +133,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al modificar el perfil';
                 }
                 break;
+                // Se compara la acción a realizar cuando un administrador pueda crear su contraseña.
             case 'changePassword':
                 $_POST = Validator::validateForm($_POST);
                 if (!$administrador->checkPassword($_POST['claveActual'])) {
@@ -154,6 +164,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'signUp':
+                // Se compara la acción a validar los datos de un administrador.
                 $_POST = Validator::validateForm($_POST);
                 if (
                     !$administrador->setNombre($_POST['nombreAdministrador']) or
@@ -170,6 +181,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al registrar el administrador';
                 }
                 break;
+                // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
             case 'logIn':
                 $_POST = Validator::validateForm($_POST);
                 if ($administrador->checkUser($_POST['username'], $_POST['password'])) {

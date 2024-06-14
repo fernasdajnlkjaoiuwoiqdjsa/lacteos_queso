@@ -48,7 +48,7 @@ class PedidoData extends PedidoHandler
       }
 
 
-
+        //Metodo para validar que la cantidad no sea menor a 10
       public function setCantidad($value)
       {
             if (Validator::validateNaturalNumber($value)) {
@@ -59,7 +59,7 @@ class PedidoData extends PedidoHandler
                   return false;
             }
       }
-
+        //Accion para llamra el id del catalogo al momento de hacer el pedido
       public function setCatalogo($value)
       {
             if (Validator::validateNaturalNumber($value)) {

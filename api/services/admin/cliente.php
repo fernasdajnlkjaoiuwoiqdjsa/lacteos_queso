@@ -14,9 +14,8 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_admin'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+            // Accion para que se pueda buscra  los clientes un nuevo catalogo.
             case 'searchRows':
-
-                
                 if (!Validator::validateSearch($_POST['search'])) {
                     $result['error'] = Validator::getSearchError();
                 } elseif ($result['dataset'] = $Clientecatalogo->searchRows()) {
@@ -26,6 +25,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay coincidencias';
                 }
                 break;
+                // Accion para que se pueda crear los un nuevo cliente.
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
@@ -48,6 +48,7 @@ if (isset($_GET['action'])) {
                 } else {
                     $result['error'] = 'Ocurrió un problema al agregar al cliente';
                 }
+                // Accion para que se pueda leer los datos los nuevos clientes.
                 break;
             case 'readAll':
                 if ($result['dataset'] = $Clientecatalogo->readAll()) {
@@ -57,6 +58,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen Cliente registrados';
                 }
                 break;
+                 // Accion para que se pueda leer los datos los nuevos clientes.
             case 'readOne':
                 if (!$Clientecatalogo->setId($_POST['idCliente'])) {
                     $result['error'] = $Clientecatalogo->getDataError();
@@ -66,6 +68,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Cliente inexistente';
                 }
                 break;
+                 // Accion para que se pueda actualizar los datos de los nuevos clientes.
             case 'updateRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
@@ -87,6 +90,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al modificar el cliente';
                 }
                 break;
+                 // Accion para que se pueda eliminar los nuevos clientes.
             case 'deleteRow':
                 if (
                     !$Clientecatalogo->setId($_POST['idCliente']) 

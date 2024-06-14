@@ -14,9 +14,8 @@ if (isset($_GET['action'])) {
      if (isset($_SESSION['id_proveedor'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+             // Accion para que se pueda buscra los proveedores.
             case 'searchRows':
-
-                
                 if (!Validator::validateSearch($_POST['search'])) {
                     $result['error'] = Validator::getSearchError();
                 } elseif ($result['dataset'] = $ProveedorCatalogo->searchRows()) {
@@ -26,6 +25,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay coincidencias';
                 }
                 break;
+                 // Accion para que se pueda crear lun nuevo proveedor.
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
@@ -47,6 +47,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al crear la categoría';
                 }
                 break;
+                 // Accion para que se pueda leer los datos los nuevos clientes.
             case 'readAll':
                 if ($result['dataset'] = $ProveedorCatalogo->readAll()) {
                     $result['status'] = 1;
@@ -55,6 +56,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen Proveedores registrados';
                 }
                 break;
+                 // Accion para que se pueda leer los datos los nuevos clientes.
             case 'readOne':
                 if (!$ProveedorCatalogo->setId($_POST['idProve'])) {
                     $result['error'] = $ProveedorCatalogo->getDataError();
@@ -64,6 +66,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Proveedor inexistente';
                 }
                 break;
+                 // Accion para que se pueda actualizar los datos los nuevos proveedores.
             case 'updateRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
@@ -85,6 +88,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al modificar el Proveedor';
                 }
                 break;
+                 // Accion para que se pueda eliminar los datos los nuevos clientes.
             case 'deleteRow':
                 if (
                     !$ProveedorCatalogo->setId($_POST['idProve']) 

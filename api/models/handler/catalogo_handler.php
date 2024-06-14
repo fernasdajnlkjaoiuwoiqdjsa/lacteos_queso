@@ -61,7 +61,7 @@ class CatalogoHandler
             $params = array($this->id);
             return Database::getRow($sql, $params);
       }
-
+      // accion para poner los datos.
       public function readFilename()
       {
             $sql = 'SELECT nombre_catalogo

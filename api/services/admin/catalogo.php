@@ -14,9 +14,8 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_admin'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+            // Accion para crear la opcion de busqueda de productos.
             case 'searchRows':
-
-                
                 if (!Validator::validateSearch($_POST['search'])) {
                     $result['error'] = Validator::getSearchError();
                 } elseif ($result['dataset'] = $CatalogoProducto->searchRows()) {
@@ -26,6 +25,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay coincidencias';
                 }
                 break;
+                // Accion para que se pueda crear un nuevo catalogo.
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
@@ -48,6 +48,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al crear la categoría';
                 }
                 break;
+                // Accion para que se pueda leer los datos de los catalogos de productos.
             case 'readAll':
                 if ($result['dataset'] = $CatalogoProducto->readAll()) {
                     $result['status'] = 1;
@@ -56,6 +57,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen catalogo registradas';
                 }
                 break;
+                // Accion para que se pueda leer los paraametros de los catalogos.
             case 'readOne':
                 if (!$CatalogoProducto->setId($_POST['idCatalogo'])) {
                     $result['error'] = $CatalogoProducto->getDataError();
@@ -65,6 +67,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Catalogo inexistente';
                 }
                 break;
+                // Accion para que se pueda actualizar los un nuevo catalogo.
             case 'updateRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
@@ -86,6 +89,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al modificar el Catalogo';
                 }
                 break;
+                // Se compara la acción a realizar cuando un administrador sea elminado
             case 'deleteRow':
                 if (
                     !$CatalogoProducto->setId($_POST['idCatalogo']) 

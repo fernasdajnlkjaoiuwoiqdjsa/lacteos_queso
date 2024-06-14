@@ -24,7 +24,7 @@ class AdministradorData extends AdministradorHandler
                   return false;
             }
       }
-
+      //Accion para validar los parametros del nombre
       public function setNombre($value, $min = 2, $max = 50)
       {
             if (!Validator::validateAlphabetic($value)) {
@@ -53,6 +53,7 @@ class AdministradorData extends AdministradorHandler
         }
     }*/
 
+      //Accion para validar los parametros del nombre
       public function setCorreo($value, $min = 8, $max = 100)
       {
             if (!Validator::validateEmail($value)) {
@@ -80,7 +81,7 @@ class AdministradorData extends AdministradorHandler
             return false;
         }
     }*/
-
+        //Accion para validar si los datos d ela contraseña estan correctso
       public function setClave($value)
       {
             if (Validator::validatePassword($value)) {

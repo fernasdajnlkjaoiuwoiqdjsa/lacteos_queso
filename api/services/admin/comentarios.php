@@ -14,9 +14,8 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_admin'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+            // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
             case 'searchRows':
-
-                
                 if (!Validator::validateSearch($_POST['search'])) {
                     $result['error'] = Validator::getSearchError();
                 } elseif ($result['dataset'] = $ComentarioCatalogo->searchRows()) {

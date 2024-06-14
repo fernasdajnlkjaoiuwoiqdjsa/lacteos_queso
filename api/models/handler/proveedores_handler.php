@@ -47,7 +47,7 @@ class ProveedorHandler
             return false;
         }
     }
-
+     //metodo para chequear los datos correctos y contraseña
     public function changePassword()
     {
         $sql = 'UPDATE proveedores
