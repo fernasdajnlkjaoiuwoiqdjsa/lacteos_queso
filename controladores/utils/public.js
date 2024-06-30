@@ -64,7 +64,7 @@ const loadTemplate = async () => {
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav ms-auto">
-                                <a class="nav-link" href="index.html"><i class="bi bi-shop"></i> Catálogo</a>
+                                <a class="nav-link" href="index.html"><i class="bi bi-tags"></i>Catálogo</a>
                                 <a class="nav-link" href="signup.html"><i class="bi bi-person"></i> Crear cuenta</a>
                                 <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-right"></i> Iniciar sesión</a>
                             </div>

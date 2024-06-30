@@ -142,4 +142,13 @@ class ClienteHandler
             $params = array($value, $value);
             return Database::getRow($sql, $params);
       }
+
+      public function readOneCorreo($correo)
+    {
+        $sql = 'SELECT id_cliente, nombre_cliente, edad_cliente, direccion, cuenta_cliente, telefono_cliente, contra, fecha_registro, estado_cliente
+                FROM clientes
+                WHERE cuenta_cliente = ?';
+        $params = array($correo);
+        return Database::getRow($sql, $params);
+    }
 }

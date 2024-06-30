@@ -29,7 +29,6 @@ if (isset($_GET['action'])) {
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    
                     !$Clientecatalogo->setNombre($_POST['nombreCliente']) or
                     !$Clientecatalogo->setEdad($_POST['edadClinte']) or
                     !$Clientecatalogo->setDireccionn($_POST['direccionCliente']) or
